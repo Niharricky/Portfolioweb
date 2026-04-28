@@ -182,12 +182,12 @@ nav{
   border:1px solid #e8ecf2;display:flex;align-items:center;gap:20px;
   box-shadow:0 1px 8px rgba(15,23,41,0.04);
   transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),box-shadow 0.25s,border-color 0.25s;
-  cursor:default;transform-style:preserve-3d;
+  cursor:default;overflow:visible;
 }
-.comp-card:hover{transform:translateY(-5px) rotateX(2deg) rotateY(-1deg);box-shadow:0 10px 30px rgba(15,23,41,0.09);border-color:#d4daea}
+.comp-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(15,23,41,0.09);border-color:#d4daea}
 .comp-icon-wrap{width:50px;height:50px;border-radius:12px;background:rgba(29,78,216,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s,transform 0.2s}
 .comp-icon-wrap svg{width:22px;height:22px}
-.comp-card:hover .comp-icon-wrap{background:rgba(29,78,216,0.13);transform:scale(1.08) rotateY(10deg)}
+.comp-card:hover .comp-icon-wrap{background:rgba(29,78,216,0.13);transform:scale(1.1)}
 .comp-card-title{font-size:0.975rem;font-weight:700;color:#0f172a;margin-bottom:4px}
 .comp-card-desc{font-size:0.8rem;color:#64748b;line-height:1.5}
 .comp-cta{text-align:center}
@@ -622,8 +622,8 @@ function sendMsg(btn) {
   setTimeout(() => { btn.innerHTML = o; btn.style.background = ''; }, 3000);
 }
 
-// ─── Subtle 3D tilt on cards ───
-document.querySelectorAll('.proj-card, .comp-card, .tss-item').forEach(c => {
+// subtle tilt on cards (only proj-card and tss-item, NOT comp-card)
+document.querySelectorAll('.proj-card, .tss-item').forEach(c => {
   c.addEventListener('mousemove', e => {
     const r = c.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
