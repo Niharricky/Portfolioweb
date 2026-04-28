@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nihar Toor — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;background:#f8f9fc;color:#0f172a;overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:60px;
+  background:rgba(255,255,255,0.93);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid #e8ecf2;
+}
+.nav-brand{font-weight:700;font-size:0.975rem;color:#0f172a;text-decoration:none}
+.nav-center{display:flex;gap:2px}
+.nav-btn{
+  font-family:'Outfit',sans-serif;font-size:0.875rem;font-weight:500;
+  color:#64748b;padding:7px 18px;border-radius:8px;
+  cursor:pointer;border:none;background:none;
+  transition:color 0.15s,background 0.15s;
+}
+.nav-btn:hover{color:#1d4ed8;background:rgba(29,78,216,0.05)}
+.nav-btn.active{background:#eef2fd;color:#1d4ed8;font-weight:600}
+.nav-gh{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:8px;color:#64748b;
+  text-decoration:none;border:1px solid #e2e8f0;transition:all 0.15s;
+}
+.nav-gh:hover{color:#0f172a;border-color:#cbd5e1;background:#f1f5f9}
+
+/* ─── PAGES ─── */
+.page{display:none;padding-top:60px}
+.page.active{display:block}
+
+/* ─── FOOTER (shared) ─── */
+.site-footer{background:#eef2f7;border-top:1px solid #e2e8f0;padding:44px 48px 0}
+.footer-inner{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:1.7fr 1fr 1fr;
+  gap:48px;padding-bottom:36px;
+}
+.f-brand{font-weight:700;font-size:0.975rem;color:#0f172a;margin-bottom:8px}
+.f-tag{font-size:0.82rem;color:#94a3b8;line-height:1.6}
+.f-col-t{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:14px}
+.f-links{display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:0.85rem;color:#64748b;text-decoration:none;transition:color 0.15s;cursor:pointer}
+.f-links a:hover{color:#0f172a}
+.f-con-item{display:flex;align-items:center;gap:9px;font-size:0.85rem;color:#64748b;margin-bottom:10px}
+.f-con-item a{color:#64748b;text-decoration:none;transition:color 0.15s}
+.f-con-item a:hover{color:#0f172a}
+.footer-bottom{
+  max-width:1060px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid #e2e8f0;padding:18px 0;flex-wrap:wrap;gap:10px;
+}
+.f-copy{font-size:0.78rem;color:#94a3b8}
+.f-legal{display:flex;gap:18px}
+.f-legal a{font-size:0.78rem;color:#94a3b8;text-decoration:none}
+.f-legal a:hover{color:#64748b}
+
+/* ─── BUTTONS ─── */
+.btn-solid{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#1d4ed8;color:#fff;padding:12px 26px;border-radius:9px;
+  font-family:'Outfit',sans-serif;font-size:0.925rem;font-weight:600;
+  border:none;cursor:pointer;transition:background 0.15s,transform 0.15s,box-shadow 0.15s;
+  box-shadow:0 4px 18px rgba(29,78,216,0.28);
+}
+.btn-solid:hover{background:#1e40af;transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,78,216,0.36)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fff;color:#0f172a;padding:11px 26px;border-radius:9px;
+  font-family:'Outfit',sans-serif;font-size:0.925rem;font-weight:600;
+  border:1.5px solid #e2e8f0;cursor:pointer;transition:all 0.15s;
+}
+.btn-outline:hover{border-color:#c7d2e8;transform:translateY(-2px);box-shadow:0 4px 14px rgba(15,23,41,0.07)}
+.btn-learn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fff;color:#0f172a;padding:12px 30px;border-radius:9px;
+  font-family:'Outfit',sans-serif;font-size:0.925rem;font-weight:600;
+  border:1.5px solid #e2e8f0;cursor:pointer;transition:all 0.15s;
+}
+.btn-learn:hover{border-color:#c7d2e8;transform:translateY(-2px);box-shadow:0 4px 14px rgba(15,23,41,0.07)}
+
+/* page tag */
+.page-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:#1d4ed8;margin-bottom:12px;
+}
+.page-tag::before{content:'';width:18px;height:2px;background:#1d4ed8;display:block}
+.page-title{
+  font-size:clamp(1.7rem,2.4vw,2.1rem);font-weight:700;color:#0f172a;
+  letter-spacing:-0.02em;line-height:1.18;margin-bottom:16px;
+}
+
+/* ════════════════ HOME ════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  height:calc(100vh - 60px);min-height:540px;
+  display:flex;align-items:center;
+  background-color:#e8edf6;
+  background-image:
+    /* subtle animated shimmer layer */
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(99,140,246,0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(147,197,253,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 85% 85%, rgba(59,130,246,0.07) 0%, transparent 50%),
+    /* dot grid pattern */
+    radial-gradient(circle, #b0bcda 1px, transparent 1px);
+  background-size: auto, auto, auto, 32px 32px;
+  background-position: center, center, center, 0 0;
+}
+/* animated glow blob that moves slowly */
+.hero::before{
+  content:'';
+  position:absolute;top:-20%;left:30%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle, rgba(99,130,246,0.10) 0%, transparent 65%);
+  animation:blobFloat 10s ease-in-out infinite;
+  pointer-events:none;z-index:0;
+}
+@keyframes blobFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.05)}
+  66%{transform:translate(-20px,20px) scale(0.97)}
+}
+.dash-wrap{
+  position:absolute;right:2%;top:50%;transform:translateY(-50%);
+  width:58%;max-width:700px;
+  opacity:0.22;pointer-events:none;z-index:0;
+}
+.dash-mock{background:#fff;border-radius:14px;box-shadow:0 24px 80px rgba(15,23,41,0.18);padding:18px}
+.dm-bar2{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.dm-dot{width:9px;height:9px;border-radius:50%}
+.dm-dot:nth-child(1){background:#ff5f57}.dm-dot:nth-child(2){background:#febc2e}.dm-dot:nth-child(3){background:#28c840}
+.dm-ttl{font-size:0.62rem;color:#94a3b8;margin-left:6px}
+.dm-nav2{display:flex;gap:10px;margin-bottom:14px}
+.dm-ni{font-size:0.6rem;color:#94a3b8;padding:3px 9px;border-radius:4px}
+.dm-ni.a{background:#eef2fd;color:#1d4ed8}
+.dm-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.dm-kpi{background:#f8faff;border-radius:7px;padding:10px;border:1px solid #e8ecf4}
+.dk-l{font-size:0.48rem;color:#94a3b8;margin-bottom:5px;text-transform:uppercase}
+.dk-v{font-size:1rem;font-weight:700;color:#0f172a}
+.dk-s{font-size:0.45rem;color:#22c55e;margin-top:1px}
+.dm-chart2{background:#f8faff;border-radius:7px;padding:12px;margin-bottom:10px;border:1px solid #e8ecf4}
+.dc-t{font-size:0.48rem;color:#94a3b8;margin-bottom:8px}
+.dc-bars{display:flex;align-items:flex-end;gap:5px;height:55px}
+.dc-b{flex:1;border-radius:2px 2px 0 0;background:linear-gradient(to top,#1d4ed8,#60a5fa)}
+.dm-r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dm-m{background:#f8faff;border-radius:7px;padding:10px;border:1px solid #e8ecf4}
+.dm-mt{font-size:0.48rem;color:#94a3b8;margin-bottom:6px}
+.dm-pie{display:flex;gap:6px;align-items:center}
+.dp-c{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:conic-gradient(#1d4ed8 0% 60%,#60a5fa 60% 80%,#bfdbfe 80% 100%)}
+.dp-l{display:flex;flex-direction:column;gap:3px}
+.dp-i{display:flex;align-items:center;gap:3px;font-size:0.45rem;color:#64748b}
+.dp-d{width:5px;height:5px;border-radius:50%}
+.dm-bars2{display:flex;flex-direction:column;gap:4px}
+.dm-b2r{font-size:0.45rem;color:#64748b;display:flex;justify-content:space-between;margin-bottom:1px}
+.dm-bp{height:3px;background:#e2e8f0;border-radius:2px}
+.dm-bv{height:100%;border-radius:2px;background:#1d4ed8}
+.hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,#e8edf6 34%,rgba(232,237,246,0.72) 56%,rgba(232,237,246,0.06) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 52px;max-width:580px}
+.hero-name{font-size:clamp(3rem,5vw,4.6rem);font-weight:800;color:#0f172a;letter-spacing:-0.035em;line-height:1.0;margin-bottom:12px}
+.hero-role{font-size:1.25rem;font-weight:400;color:#64748b;margin-bottom:16px}
+.hero-desc{font-size:0.975rem;color:#64748b;line-height:1.72;max-width:420px;margin-bottom:34px}
+.hero-btns{display:flex;gap:12px;align-items:center}
+
+.comp-section{padding:86px 48px 96px;background:#f8f9fc}
+.comp-inner{max-width:1060px;margin:0 auto}
+.comp-h{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;color:#0f172a;text-align:center;letter-spacing:-0.025em;margin-bottom:10px}
+.comp-sub{font-size:0.925rem;color:#64748b;text-align:center;line-height:1.65;max-width:520px;margin:0 auto 52px}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;max-width:880px;margin-left:auto;margin-right:auto}
+.comp-card{
+  background:#fff;border-radius:14px;padding:26px 24px;
+  border:1px solid #e8ecf2;display:flex;align-items:center;gap:20px;
+  box-shadow:0 1px 8px rgba(15,23,41,0.04);
+  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),box-shadow 0.25s,border-color 0.25s;
+  cursor:default;transform-style:preserve-3d;
+}
+.comp-card:hover{transform:translateY(-5px) rotateX(2deg) rotateY(-1deg);box-shadow:0 10px 30px rgba(15,23,41,0.09);border-color:#d4daea}
+.comp-icon-wrap{width:50px;height:50px;border-radius:12px;background:rgba(29,78,216,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s,transform 0.2s}
+.comp-icon-wrap svg{width:22px;height:22px}
+.comp-card:hover .comp-icon-wrap{background:rgba(29,78,216,0.13);transform:scale(1.08) rotateY(10deg)}
+.comp-card-title{font-size:0.975rem;font-weight:700;color:#0f172a;margin-bottom:4px}
+.comp-card-desc{font-size:0.8rem;color:#64748b;line-height:1.5}
+.comp-cta{text-align:center}
+
+/* ════════════════ ABOUT ════════════════ */
+.about-hero{background:linear-gradient(135deg,#f8faff 0%,#eef2ff 100%);padding:68px 48px 60px;border-bottom:1px solid #e8ecf2}
+.about-hero-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start}
+.about-card{
+  background:#fff;border-radius:20px;padding:34px;
+  border:1px solid #e2e8f0;box-shadow:0 8px 28px rgba(15,23,41,0.06);
+  text-align:center;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s;
+  transform-style:preserve-3d;
+}
+.about-card:hover{transform:translateY(-6px) rotateX(2deg) rotateY(2deg);box-shadow:0 16px 48px rgba(15,23,41,0.1)}
+.about-avatar{width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,#1d4ed8,#60a5fa);display:flex;align-items:center;justify-content:center;font-size:1.85rem;font-weight:800;color:#fff;margin:0 auto 16px;box-shadow:0 8px 22px rgba(29,78,216,0.24)}
+.ac-name{font-size:1.15rem;font-weight:700;color:#0f172a;margin-bottom:3px}
+.ac-role{font-size:0.85rem;color:#1d4ed8;font-weight:500;margin-bottom:16px}
+.ac-info{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.aci{display:flex;align-items:center;justify-content:center;gap:7px;font-size:0.8rem;color:#64748b}
+.aci a{color:#1d4ed8;text-decoration:none}.aci a:hover{text-decoration:underline}
+.avail-chip{background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.18);color:#16a34a;border-radius:8px;padding:9px 13px;font-size:0.77rem;display:flex;align-items:center;gap:7px;text-align:left}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+.page-bio{font-size:0.975rem;color:#64748b;line-height:1.75}
+.page-bio strong{color:#0f172a;font-weight:600}
+
+/* About body */
+.about-body{padding:60px 48px 0;max-width:860px;margin:0 auto}
+.s-title{font-size:0.975rem;font-weight:700;color:#0f172a;margin-bottom:14px}
+
+/* ── TECHNICAL SKILLS (like screenshot) ── */
+.tech-skills-section{padding:56px 48px 0;background:#fff;border-top:1px solid #f1f5f9}
+.tss-inner{max-width:960px;margin:0 auto}
+.tss-heading{font-size:1.6rem;font-weight:700;color:#0f172a;margin-bottom:8px;letter-spacing:-0.02em}
+.tss-sub{font-size:0.875rem;color:#64748b;line-height:1.6;max-width:460px;margin-bottom:44px}
+.tss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+.tss-item{
+  display:flex;align-items:center;gap:16px;
+  padding:10px 8px;border-radius:10px;
+  transition:transform 0.22s cubic-bezier(0.16,1,0.3,1),background 0.2s;
+  cursor:default;
+}
+.tss-item:hover{transform:translateY(-3px) scale(1.02);background:rgba(29,78,216,0.03)}
+.tss-icon-wrap{
+  width:50px;height:50px;border-radius:12px;flex-shrink:0;
+  background:#eef2fb;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s,transform 0.22s;
+}
+.tss-item:hover .tss-icon-wrap{background:#dde6f8;transform:scale(1.1) rotateY(12deg)}
+.tss-icon-wrap svg{width:22px;height:22px;stroke:#2d5be3;fill:none;stroke-width:1.8}
+.tss-name{font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:2px}
+.tss-level{font-size:0.8rem;color:#94a3b8;font-weight:400}
+.tss-pad{padding-bottom:56px}
+
+/* tools */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
+.tool-chip{background:#f1f5f9;color:#64748b;padding:5px 15px;border-radius:100px;font-size:0.79rem;font-weight:500;border:1px solid #e2e8f0;transition:all 0.15s;cursor:default}
+.tool-chip:hover{background:rgba(29,78,216,0.07);color:#1d4ed8;border-color:rgba(29,78,216,0.18);transform:translateY(-2px)}
+
+/* ════════════════ PORTFOLIO ════════════════ */
+.portfolio-page{background:#f8f9fc;padding:60px 48px 80px}
+.portfolio-inner{max-width:1060px;margin:0 auto}
+.port-header{margin-bottom:44px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.proj-card{
+  background:#fff;border-radius:17px;border:1px solid #e8ecf2;overflow:hidden;
+  box-shadow:0 2px 10px rgba(15,23,41,0.04);
+  transition:transform 0.28s cubic-bezier(0.16,1,0.3,1),box-shadow 0.28s;
+  transform-style:preserve-3d;
+}
+.proj-card:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:0 18px 50px rgba(15,23,41,0.10)}
+.proj-thumb{height:185px;position:relative;overflow:hidden}
+.proj-thumb-bg{position:absolute;inset:0;transition:transform 0.45s}
+.proj-card:hover .proj-thumb-bg{transform:scale(1.05)}
+.pt1{background:linear-gradient(135deg,#1e3a8a,#3b82f6)}.pt2{background:linear-gradient(135deg,#312e81,#7c3aed,#60a5fa)}.pt3{background:linear-gradient(135deg,#0c4a6e,#0284c7)}.pt4{background:linear-gradient(135deg,#1e3a8a,#0ea5e9)}
+.proj-thumb-overlay{position:absolute;inset:0;background:rgba(15,23,41,0.15)}
+.proj-thumb-top{position:absolute;top:13px;left:13px;right:13px;display:flex;justify-content:space-between}
+.ptag{background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:3px 11px;font-size:0.67rem;font-weight:600}
+.ptag2{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border-radius:100px;padding:3px 9px;font-size:0.63rem}
+.proj-thumb-icon{position:absolute;bottom:13px;right:13px;font-size:2.3rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.25))}
+.proj-body{padding:20px 20px 22px}
+.proj-title{font-size:0.975rem;font-weight:700;color:#0f172a;margin-bottom:6px}
+.proj-desc{font-size:0.8rem;color:#64748b;line-height:1.62;margin-bottom:13px}
+.proj-stats{display:flex;gap:16px;margin-bottom:13px;padding-bottom:13px;border-bottom:1px solid #f1f5f9}
+.ps{display:flex;flex-direction:column}
+.ps-num{font-size:0.88rem;font-weight:700;color:#0f172a}
+.ps-lbl{font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.proj-tag{background:#f1f5f9;color:#64748b;border-radius:5px;padding:3px 9px;font-size:0.68rem;font-weight:500}
+.proj-link{display:inline-flex;align-items:center;gap:5px;color:#1d4ed8;font-size:0.82rem;font-weight:600;text-decoration:none;transition:gap 0.15s}
+.proj-link:hover{gap:9px}
+
+/* ════════════════ CONTACT ════════════════ */
+.contact-page{background:#f8f9fc;padding:60px 48px 80px}
+.contact-inner{max-width:960px;margin:0 auto}
+.contact-wrap{background:#fff;border-radius:20px;border:1px solid #e8ecf2;overflow:hidden;box-shadow:0 4px 22px rgba(15,23,41,0.05)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr}
+.contact-left{padding:50px;background:linear-gradient(155deg,#0f1729 0%,#1a2f6a 100%);position:relative;overflow:hidden}
+.cl-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.023) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.023) 1px,transparent 1px);background-size:34px 34px}
+.cl-glow{position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,0.22) 0%,transparent 70%)}
+.contact-left h2{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:12px;position:relative;z-index:1}
+.contact-left p{color:rgba(255,255,255,0.52);font-size:0.875rem;line-height:1.7;margin-bottom:34px;position:relative;z-index:1}
+.ci-list{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.ci-item{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:13px 15px;transition:background 0.15s,transform 0.2s}
+.ci-item:hover{background:rgba(255,255,255,0.09);transform:translateX(4px)}
+.ci-ico{width:36px;height:36px;border-radius:8px;background:rgba(29,78,216,0.32);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.ci-lbl{font-size:0.62rem;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px}
+.ci-val{font-size:0.825rem;color:#fff;font-weight:500}
+.ci-val a{color:#93c5fd;text-decoration:none}.ci-val a:hover{text-decoration:underline}
+.avail-box{margin-top:18px;position:relative;z-index:1;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.16);border-radius:9px;padding:13px 15px;display:flex;align-items:flex-start;gap:9px}
+.ab-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;margin-top:3px;animation:pulse 2s infinite}
+.ab-txt{font-size:0.78rem;color:rgba(255,255,255,0.55);line-height:1.5}
+.contact-right{padding:50px}
+.contact-right h3{font-size:1.2rem;font-weight:700;color:#0f172a;margin-bottom:5px}
+.contact-right .sub-txt{font-size:0.825rem;color:#94a3b8;margin-bottom:28px}
+.form-group{margin-bottom:17px}
+.form-lbl{display:block;font-size:0.76rem;font-weight:600;color:#374151;margin-bottom:6px}
+.form-inp{width:100%;padding:11px 14px;background:#f8f9fc;border:1.5px solid #e2e8f0;border-radius:9px;font-family:'Outfit',sans-serif;font-size:0.875rem;color:#0f172a;outline:none;transition:border-color 0.15s,background 0.15s,box-shadow 0.15s}
+.form-inp:focus{background:#fff;border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,0.07)}
+textarea.form-inp{resize:vertical;min-height:106px}
+.form-btn{width:100%;padding:13px;background:#1d4ed8;color:#fff;border:none;border-radius:9px;font-family:'Outfit',sans-serif;font-size:0.925rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.15s;box-shadow:0 4px 16px rgba(29,78,216,0.26)}
+.form-btn:hover{background:#1e40af;transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,78,216,0.34)}
+.form-note{font-size:0.74rem;color:#94a3b8;text-align:center;margin-top:11px}
+.form-note a{color:#1d4ed8;text-decoration:none}.form-note a:hover{text-decoration:underline}
+
+/* responsive */
+@media(max-width:1000px){
+  nav{padding:0 20px}
+  .hero-content{padding:0 20px}
+  .dash-wrap{display:none}
+  .hero-overlay{background:#e8edf6}
+  .comp-section,.about-body,.tech-skills-section,.portfolio-page,.contact-page{padding-left:20px;padding-right:20px}
+  .about-hero{padding:44px 20px 52px}
+  .site-footer{padding:40px 20px 0}
+  .about-hero-inner{grid-template-columns:1fr;gap:28px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:28px}
+  .comp-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:32px}
+  .tss-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .tss-grid{grid-template-columns:1fr}
+  .hero-name{font-size:2.6rem}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand" onclick="show('home');return false">Nihar Toor</a>
+  <div class="nav-center">
+    <button class="nav-btn active" id="btn-home"      onclick="show('home')">Home</button>
+    <button class="nav-btn"        id="btn-about"     onclick="show('about')">About</button>
+    <button class="nav-btn"        id="btn-portfolio" onclick="show('portfolio')">Portfolio</button>
+    <button class="nav-btn"        id="btn-contact"   onclick="show('contact')">Contact</button>
+  </div>
+  <a href="https://github.com/Niharricky" target="_blank" class="nav-gh" title="GitHub">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+  </a>
+</nav>
+
+<!-- ═══════ FOOTER TEMPLATE (injected via JS) ═══════ -->
+<template id="footer-tpl">
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="f-brand">Nihar Toor</div>
+        <div class="f-tag">Data Analyst specializing in transforming complex datasets into actionable insights.</div>
+      </div>
+      <div>
+        <div class="f-col-t">Quick Links</div>
+        <div class="f-links">
+          <a onclick="show('about')">About</a>
+          <a onclick="show('portfolio')">Portfolio</a>
+          <a onclick="show('contact')">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-t">Connect</div>
+        <div class="f-con-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div>
+        <div class="f-con-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg><a href="https://github.com/Niharricky" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="f-copy">© 2026 Nihar Toor. All rights reserved.</div>
+      <div class="f-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </footer>
+</template>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="dash-wrap">
+      <div class="dash-mock">
+        <div class="dm-bar2"><div class="dm-dot"></div><div class="dm-dot"></div><div class="dm-dot"></div><span class="dm-ttl">Analytics Dashboard — 2023</span></div>
+        <div class="dm-nav2"><span class="dm-ni a">Overview</span><span class="dm-ni">Revenue</span><span class="dm-ni">Customers</span><span class="dm-ni">Reports</span></div>
+        <div class="dm-kpis">
+          <div class="dm-kpi"><div class="dk-l">Total Revenue</div><div class="dk-v">$57M</div><div class="dk-s">↑ 4.2%</div></div>
+          <div class="dm-kpi"><div class="dk-l">Transactions</div><div class="dk-v">667K</div><div class="dk-s">↑ 2.8%</div></div>
+          <div class="dm-kpi"><div class="dk-l">Attrition</div><div class="dk-v">16.1%</div><div class="dk-s">↓ 1.2%</div></div>
+          <div class="dm-kpi"><div class="dk-l">Customers</div><div class="dk-v">10,109</div><div class="dk-s">↑ 3.5%</div></div>
+        </div>
+        <div class="dm-chart2">
+          <div class="dc-t">Weekly Revenue Trend</div>
+          <div class="dc-bars"><div class="dc-b" style="height:38%"></div><div class="dc-b" style="height:54%"></div><div class="dc-b" style="height:46%"></div><div class="dc-b" style="height:70%"></div><div class="dc-b" style="height:60%"></div><div class="dc-b" style="height:80%"></div><div class="dc-b" style="height:66%"></div><div class="dc-b" style="height:88%"></div><div class="dc-b" style="height:74%"></div><div class="dc-b" style="height:96%"></div></div>
+        </div>
+        <div class="dm-r2">
+          <div class="dm-m"><div class="dm-mt">Card Revenue</div><div class="dm-pie"><div class="dp-c"></div><div class="dp-l"><div class="dp-i"><div class="dp-d" style="background:#1d4ed8"></div>Blue 83%</div><div class="dp-i"><div class="dp-d" style="background:#60a5fa"></div>Silver 11%</div><div class="dp-i"><div class="dp-d" style="background:#bfdbfe"></div>Other 6%</div></div></div></div>
+          <div class="dm-m"><div class="dm-mt">Expense Types</div><div class="dm-bars2"><div class="dm-b2r"><span>Bills</span><span>$14M</span></div><div class="dm-bp"><div class="dm-bv" style="width:86%"></div></div><div class="dm-b2r"><span>Entertainment</span><span>$10M</span></div><div class="dm-bp"><div class="dm-bv" style="width:63%;background:#60a5fa"></div></div><div class="dm-b2r"><span>Fuel</span><span>$10M</span></div><div class="dm-bp"><div class="dm-bv" style="width:60%;background:#93c5fd"></div></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-name">Nihar Toor</h1>
+      <p class="hero-role">Data Analyst</p>
+      <p class="hero-desc">Transforming complex datasets into actionable insights that drive strategic business decisions. Specialized in SQL, Python, Excel, and advanced analytics.</p>
+      <div class="hero-btns">
+        <button class="btn-solid" onclick="show('portfolio')">View Portfolio <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <button class="btn-outline" onclick="show('contact')">Contact Me</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="comp-section">
+    <div class="comp-inner">
+      <h2 class="comp-h">Core Competencies</h2>
+      <p class="comp-sub">Leveraging cutting-edge tools and methodologies to extract meaningful patterns from data</p>
+      <div class="comp-grid">
+        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="comp-card-title">SQL & Database Management</div><div class="comp-card-desc">Expert in complex queries and optimization</div></div></div>
+        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M14 14l2 2 3-3"/></svg></div><div><div class="comp-card-title">Data Visualization</div><div class="comp-card-desc">Creating impactful dashboards with Excel & Power BI</div></div></div>
+        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="comp-card-title">Statistical Analysis</div><div class="comp-card-desc">Advanced analytics and predictive modeling</div></div></div>
+        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 11h2M13 8l2 2-2 2"/></svg></div><div><div class="comp-card-title">Python & Excel</div><div class="comp-card-desc">Automation and advanced data manipulation</div></div></div>
+      </div>
+      <div class="comp-cta"><button class="btn-learn" onclick="show('about')">Learn More About Me <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+    </div>
+  </section>
+  <div id="footer-home"></div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-card">
+        <div class="about-avatar">NT</div>
+        <div class="ac-name">Nihar Toor</div>
+        <div class="ac-role">Data Analyst · BI Developer</div>
+        <div class="ac-info">
+          <div class="aci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>India</div>
+          <div class="aci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div>
+        </div>
+        <div class="avail-chip"><span class="avail-dot"></span>Available for opportunities</div>
+      </div>
+      <div>
+        <div class="page-tag">About Me</div>
+        <h2 class="page-title">Turning Raw Data Into<br>Strategic Decisions</h2>
+        <p class="page-bio">I'm an <strong>aspiring Data Analyst</strong> from India with a passion for transforming raw, complex datasets into clear, actionable business insights. I build end-to-end analytics solutions across <strong>finance, HR, retail, and e-commerce</strong> using SQL, Python, Power BI, and Microsoft Fabric — delivering executive-ready dashboards that drive real decisions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="tech-skills-section">
+    <div class="tss-inner">
+      <h2 class="tss-heading">Technical Skills</h2>
+      <p class="tss-sub">Proficient in industry-standard tools and methodologies for data analysis and visualization</p>
+      <div class="tss-grid tss-pad">
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div><div class="tss-name">SQL</div><div class="tss-level">Advanced</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div><div class="tss-name">Python</div><div class="tss-level">Advanced</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M14 14l2 2 3-3"/></svg>
+          </div>
+          <div><div class="tss-name">Power BI</div><div class="tss-level">Expert</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 11h2M13 8l2 2-2 2"/></svg>
+          </div>
+          <div><div class="tss-name">Excel</div><div class="tss-level">Advanced</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div><div class="tss-name">Statistics</div><div class="tss-level">Advanced</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <div><div class="tss-name">DAX / M Query</div><div class="tss-level">Advanced</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div><div class="tss-name">PySpark</div><div class="tss-level">Intermediate</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <div><div class="tss-name">MS Fabric</div><div class="tss-level">Intermediate</div></div>
+        </div>
+
+        <div class="tss-item">
+          <div class="tss-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </div>
+          <div><div class="tss-name">Git & GitHub</div><div class="tss-level">Proficient</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer-about"></div>
+</div>
+
+<!-- ═══════════ PORTFOLIO ═══════════ -->
+<div id="page-portfolio" class="page">
+  <div class="portfolio-page">
+    <div class="portfolio-inner">
+      <div class="port-header">
+        <div class="page-tag">Portfolio</div>
+        <h2 class="page-title">Featured Projects</h2>
+        <p style="font-size:0.925rem;color:#64748b;max-width:480px;line-height:1.65">End-to-end data analytics solutions across finance, HR, retail and sales domains.</p>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt1"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · Python · SQL</span><span class="ptag2">HR Analytics</span></div><div class="proj-thumb-icon">👥</div></div><div class="proj-body"><div class="proj-title">HR Attrition Analytics Dashboard</div><div class="proj-desc">Interactive analytics dashboard analyzing employee attrition patterns across demographics, tenure, compensation, and work-life balance to drive data-informed retention strategies.</div><div class="proj-stats"><div class="ps"><span class="ps-num">1,470</span><span class="ps-lbl">Employees</span></div><div class="ps"><span class="ps-num">16.12%</span><span class="ps-lbl">Attrition Rate</span></div><div class="ps"><span class="ps-num">32</span><span class="ps-lbl">Features</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">MySQL</span><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">DAX</span></div><a href="https://github.com/Niharricky/HR-Attrition-Analytics" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt2"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Python · SQL · Power BI</span><span class="ptag2">Retail Analytics</span></div><div class="proj-thumb-icon">🛒</div></div><div class="proj-body"><div class="proj-title">Customer Shopping Behavior Analysis</div><div class="proj-desc">End-to-end analytics project analyzing 3,900 customer purchases to uncover spending patterns, subscription drivers, and product preferences for strategic marketing optimization.</div><div class="proj-stats"><div class="ps"><span class="ps-num">3,900</span><span class="ps-lbl">Transactions</span></div><div class="ps"><span class="ps-num">$233K</span><span class="ps-lbl">Revenue</span></div><div class="ps"><span class="ps-num">10</span><span class="ps-lbl">SQL Queries</span></div></div><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">MySQL</span><span class="proj-tag">Power BI</span></div><a href="https://github.com/Niharricky/Customer_behavior_analysis" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt3"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · MySQL · DAX</span><span class="ptag2">Financial Analytics</span></div><div class="proj-thumb-icon">💳</div></div><div class="proj-body"><div class="proj-title">Credit Card Financial Dashboard</div><div class="proj-desc">Weekly financial analytics dashboard tracking $57M in credit card revenue across customer demographics and transaction behavior, with WoW trend analysis and delinquency monitoring.</div><div class="proj-stats"><div class="ps"><span class="ps-num">$57M</span><span class="ps-lbl">Revenue</span></div><div class="ps"><span class="ps-num">667K</span><span class="ps-lbl">Transactions</span></div><div class="ps"><span class="ps-num">10,109</span><span class="ps-lbl">Records</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">MySQL</span><span class="proj-tag">DAX</span><span class="proj-tag">Excel</span></div><a href="https://github.com/Niharricky/Credit_Card_Financial_Dashboard" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt4"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">MS Fabric · PySpark · SQL</span><span class="ptag2">Sales Analytics</span></div><div class="proj-thumb-icon">🏪</div></div><div class="proj-body"><div class="proj-title">Superstore Sales Analytics</div><div class="proj-desc">End-to-end data analytics workflow using Microsoft Fabric and Power BI to analyze retail sales data, generating actionable insights on revenue, profit, and customer behavior.</div><div class="proj-stats"><div class="ps"><span class="ps-num">4</span><span class="ps-lbl">Regions</span></div><div class="ps"><span class="ps-num">3</span><span class="ps-lbl">Categories</span></div><div class="ps"><span class="ps-num">Multi-yr</span><span class="ps-lbl">Trend</span></div></div><div class="proj-tags"><span class="proj-tag">MS Fabric</span><span class="proj-tag">PySpark</span><span class="proj-tag">Power BI</span><span class="proj-tag">SQL</span></div><a href="https://github.com/Niharricky/Super_Store_Sales_Analytics" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
+        <!-- Project 5: Ecommerce Business Insights -->
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg" style="background:linear-gradient(135deg,#065f46,#059669,#34d399)"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · SQL · Python</span><span class="ptag2">E-Commerce Analytics</span></div><div class="proj-thumb-icon">🛍️</div></div><div class="proj-body"><div class="proj-title">E-Commerce Business Insights</div><div class="proj-desc">End-to-end business intelligence solution analyzing e-commerce performance across sales, customer segments, product categories, and regional trends to surface actionable growth opportunities.</div><div class="proj-stats"><div class="ps"><span class="ps-num">KPI</span><span class="ps-lbl">Tracking</span></div><div class="ps"><span class="ps-num">Multi</span><span class="ps-lbl">Dimensions</span></div><div class="ps"><span class="ps-num">BI</span><span class="ps-lbl">Dashboard</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">SQL</span><span class="proj-tag">Python</span><span class="proj-tag">DAX</span></div><a href="https://github.com/Niharricky/Ecommerce-Business-Insights" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
+        <!-- Project 6: Airbnb Dashboard -->
+        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg" style="background:linear-gradient(135deg,#be123c,#f43f5e,#fb7185)"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · Maven Analytics</span><span class="ptag2">Travel & Hospitality</span></div><div class="proj-thumb-icon">🏠</div></div><div class="proj-body"><div class="proj-title">Airbnb Listings & Reviews Dashboard</div><div class="proj-desc">Interactive Power BI dashboard analyzing Airbnb listings and review data from Maven Analytics — uncovering pricing trends, host performance, review scores, and geographic distribution insights.</div><div class="proj-stats"><div class="ps"><span class="ps-num">Listings</span><span class="ps-lbl">Dataset</span></div><div class="ps"><span class="ps-num">Reviews</span><span class="ps-lbl">Analyzed</span></div><div class="ps"><span class="ps-num">Geo</span><span class="ps-lbl">Insights</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">DAX</span><span class="proj-tag">Data Cleaning</span><span class="proj-tag">Maven Analytics</span></div><a href="https://github.com/Niharricky/Airbnb-Dashboard" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer-portfolio"></div>
+</div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-page">
+    <div class="contact-inner">
+      <div style="margin-bottom:40px">
+        <div class="page-tag">Contact</div>
+        <h2 class="page-title">Get in Touch</h2>
+        <p style="font-size:0.925rem;color:#64748b;max-width:480px;line-height:1.65">Have a project in mind or want to discuss data analysis opportunities? I'd love to hear from you.</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-grid">
+          <div class="contact-left"><div class="cl-grid"></div><div class="cl-glow"></div>
+            <h2>Let's work<br>together</h2>
+            <p>Currently open to freelance projects and full-time positions in data analysis, business intelligence, and analytics consulting.</p>
+            <div class="ci-list">
+              <div class="ci-item"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div></div></div>
+              <div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">India</div></div></div>
+              <div class="ci-item"><div class="ci-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div><div class="ci-lbl">GitHub</div><div class="ci-val"><a href="https://github.com/Niharricky" target="_blank">github.com/Niharricky</a></div></div></div>
+            </div>
+            <div class="avail-box"><span class="ab-dot"></span><span class="ab-txt">Available for Opportunities — Open to freelance and full-time positions in data analysis, BI, and analytics consulting.</span></div>
+          </div>
+          <div class="contact-right">
+            <h3>Send a Message</h3><p class="sub-txt">I typically respond within 24 hours.</p>
+            <div class="form-group"><label class="form-lbl">Name</label><input type="text" class="form-inp" placeholder="Your name"></div>
+            <div class="form-group"><label class="form-lbl">Email</label><input type="email" class="form-inp" placeholder="your.email@example.com"></div>
+            <div class="form-group"><label class="form-lbl">Message</label><textarea class="form-inp" placeholder="Tell me about your project or inquiry..."></textarea></div>
+            <button class="form-btn" onclick="sendMsg(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send Message</button>
+            <p class="form-note">Or reach out directly at: <a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-contact"></div>
+</div>
+
+<script>
+// ─── Inject footer into every page ───
+function injectFooters() {
+  const tpl = document.getElementById('footer-tpl').content;
+  ['home','about','portfolio','contact'].forEach(id => {
+    const el = document.getElementById('footer-'+id);
+    if (el) el.appendChild(tpl.cloneNode(true));
+  });
+}
+injectFooters();
+
+// ─── Page switching ───
+function show(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// ─── Form send ───
+function sendMsg(btn) {
+  const o = btn.innerHTML;
+  btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Sent!';
+  btn.style.background = '#16a34a';
+  setTimeout(() => { btn.innerHTML = o; btn.style.background = ''; }, 3000);
+}
+
+// ─── Subtle 3D tilt on cards ───
+document.querySelectorAll('.proj-card, .comp-card, .tss-item').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    c.style.transform = `translateY(-5px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+  });
+  c.addEventListener('mouseleave', () => c.style.transform = '');
+});
+</script>
+</body>
+</html>
