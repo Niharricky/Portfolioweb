@@ -1,707 +1,3061 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nihar Toor — Data Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:#f8f9fc;color:#0f172a;overflow-x:hidden}
+<html lang="en" data-fh-contract="1" class=""><head><meta data-gneiss-csp http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; object-src 'none'; base-uri 'none'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https: blob:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://youtu.be https://player.vimeo.com https://vimeo.com; connect-src 'none'; form-action https:"><meta data-gneiss-publish-meta name="robots" content="noindex"><meta property="og:title" content="Nihar Toor — Data Analyst"><meta property="og:type" content="website"><meta property="og:image" content="https://new.express.adobe.com/webpage/urn:aaid:sc:AP:f90652f4-e771-4551-af59-c6dc6beae37f/resources/1786261905495?asset_id=rendition"><meta property="og:url" content="https://new.express.adobe.com/webpage/urn:aaid:sc:AP:f90652f4-e771-4551-af59-c6dc6beae37f"><meta property="og:image:width" content="1024"><meta property="og:image:height" content="512"><meta property="og:site_name" content="Adobe Express"><meta property="og:description" content="See the story"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Nihar Toor — Data Analyst"><meta name="twitter:image:src" content="https://new.express.adobe.com/webpage/urn:aaid:sc:AP:f90652f4-e771-4551-af59-c6dc6beae37f/resources/1786261905495?asset_id=rendition"><meta name="twitter:description" content="See the story"><link rel="apple-touch-icon" href="https://new.express.adobe.com/webpage/urn:aaid:sc:AP:f90652f4-e771-4551-af59-c6dc6beae37f/resources/1786261905495?asset_id=rendition"><link rel="shortcut icon" href="images/favicon.ico"><style data-gneiss-publish-scroll>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nihar Toor — Data Analyst</title>
+<link rel="stylesheet" href="https://use.typekit.net/osa0llm.css"><style data-fh-id="fh-agent-styles" data-name="Agent styles">
+/* ===== MONOCHROME 3D THEME (black / white / grey only) ===== */
 
-/* ══════════ NAV ══════════ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:60px;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid #e8ecf2;
+@keyframes bg-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-.nav-brand{font-weight:700;font-size:0.975rem;color:#0f172a;text-decoration:none;z-index:1001}
-.nav-center{display:flex;gap:2px}
-.nav-btn{
-  font-family:'Outfit',sans-serif;font-size:0.875rem;font-weight:500;
-  color:#64748b;padding:7px 18px;border-radius:8px;
-  cursor:pointer;border:none;background:none;transition:color 0.15s,background 0.15s;
+@keyframes float-card {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  50%      { transform: translateY(-10px) rotateX(2deg); }
 }
-.nav-btn:hover{color:#1d4ed8;background:rgba(29,78,216,0.05)}
-.nav-btn.active{background:#eef2fd;color:#1d4ed8;font-weight:600}
-.nav-gh{
-  display:flex;align-items:center;justify-content:center;
-  width:36px;height:36px;border-radius:8px;color:#64748b;
-  text-decoration:none;border:1px solid #e2e8f0;transition:all 0.15s;
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-6px); }
 }
-.nav-gh:hover{color:#0f172a;border-color:#cbd5e1;background:#f1f5f9}
-
-/* ── Hamburger ── */
-.hamburger{
-  display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:38px;height:38px;cursor:pointer;border:none;background:none;
-  border-radius:8px;padding:6px;transition:background 0.15s;z-index:1001;
+@keyframes spin-glow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
-.hamburger:hover{background:#f1f5f9}
-.ham-line{
-  display:block;width:100%;height:2px;background:#0f172a;border-radius:2px;
-  transition:transform 0.25s, opacity 0.25s;transform-origin:center;
+@keyframes shimmer-border {
+  0%, 100% { border-color: rgba(255,255,255,0.15); }
+  50%      { border-color: rgba(255,255,255,0.45); }
 }
-.hamburger.open .ham-line:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open .ham-line:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open .ham-line:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* ── Mobile Menu Overlay ── */
-.mobile-menu{
-  display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(255,255,255,0.98);backdrop-filter:blur(16px);
-  flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  opacity:0;transition:opacity 0.25s;
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.15), 0 0 0 rgba(255,255,255,0); }
+  50%      { box-shadow: 0 0 35px rgba(255,255,255,0.35), 0 0 60px rgba(255,255,255,0.1); }
 }
-.mobile-menu.open{display:flex;opacity:1}
-.mob-btn{
-  font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:600;
-  color:#64748b;background:none;border:none;cursor:pointer;
-  padding:14px 40px;border-radius:12px;width:220px;text-align:center;
-  transition:color 0.15s,background 0.15s;
+@keyframes text-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
-.mob-btn:hover,.mob-btn.active{color:#1d4ed8;background:rgba(29,78,216,0.06)}
-.mob-gh{
-  display:flex;align-items:center;gap:8px;margin-top:16px;
-  color:#64748b;text-decoration:none;font-size:0.95rem;font-weight:500;
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════ PAGES ══════════ */
-.page{display:none;padding-top:60px}
-.page.active{display:block}
-
-/* ══════════ FOOTER ══════════ */
-.site-footer{background:#eef2f7;border-top:1px solid #e2e8f0;padding:44px 48px 0}
-.footer-inner{
-  max-width:1060px;margin:0 auto;
-  display:grid;grid-template-columns:1.7fr 1fr 1fr;
-  gap:48px;padding-bottom:36px;
-}
-.f-brand{font-weight:700;font-size:0.975rem;color:#0f172a;margin-bottom:8px}
-.f-tag{font-size:0.82rem;color:#94a3b8;line-height:1.6}
-.f-col-t{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:14px}
-.f-links{display:flex;flex-direction:column;gap:10px}
-.f-links a{font-size:0.85rem;color:#64748b;text-decoration:none;transition:color 0.15s;cursor:pointer}
-.f-links a:hover{color:#0f172a}
-.f-con-item{display:flex;align-items:center;gap:9px;font-size:0.85rem;color:#64748b;margin-bottom:10px}
-.f-con-item a{color:#64748b;text-decoration:none;transition:color 0.15s}
-.f-con-item a:hover{color:#0f172a}
-.footer-bottom{
-  max-width:1060px;margin:0 auto;
-  display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid #e2e8f0;padding:18px 0;flex-wrap:wrap;gap:10px;
-}
-.f-copy{font-size:0.78rem;color:#94a3b8}
-.f-legal{display:flex;gap:18px}
-.f-legal a{font-size:0.78rem;color:#94a3b8;text-decoration:none}
-.f-legal a:hover{color:#64748b}
-
-/* ══════════ BUTTONS ══════════ */
-.btn-solid{
-  display:inline-flex;align-items:center;gap:9px;
-  background:#1d4ed8;color:#fff;padding:13px 28px;border-radius:10px;
-  font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:600;
-  border:none;cursor:pointer;transition:background 0.15s,transform 0.15s,box-shadow 0.15s;
-  box-shadow:0 4px 18px rgba(29,78,216,0.28);white-space:nowrap;
-}
-.btn-solid:hover{background:#1e40af;transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,78,216,0.36)}
-.btn-outline{
-  display:inline-flex;align-items:center;gap:9px;
-  background:#fff;color:#0f172a;padding:12px 28px;border-radius:10px;
-  font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:600;
-  border:1.5px solid #e2e8f0;cursor:pointer;transition:all 0.15s;white-space:nowrap;
-}
-.btn-outline:hover{border-color:#c7d2e8;transform:translateY(-2px);box-shadow:0 4px 14px rgba(15,23,41,0.07)}
-.btn-learn{
-  display:inline-flex;align-items:center;gap:9px;
-  background:#fff;color:#0f172a;padding:13px 32px;border-radius:10px;
-  font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:600;
-  border:1.5px solid #e2e8f0;cursor:pointer;transition:all 0.15s;
-}
-.btn-learn:hover{border-color:#c7d2e8;transform:translateY(-2px);box-shadow:0 4px 14px rgba(15,23,41,0.07)}
-
-.page-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:0.7rem;font-weight:600;letter-spacing:0.1em;
-  text-transform:uppercase;color:#1d4ed8;margin-bottom:12px;
-}
-.page-tag::before{content:'';width:18px;height:2px;background:#1d4ed8;display:block}
-.page-title{
-  font-size:clamp(1.6rem,3.5vw,2.1rem);font-weight:700;color:#0f172a;
-  letter-spacing:-0.02em;line-height:1.18;margin-bottom:16px;
+/* Background motion (kept off `body` on purpose — `perspective`/`transform` on an
+   ancestor of a `position: fixed` element breaks fixed positioning, which is why
+   the header wasn't staying put). Perspective is applied per-section below instead. */
+body {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 35%, #050505 70%, #000000 100%);
+  background-size: 300% 300%;
+  animation: bg-shift 18s ease infinite;
 }
 
-/* ══════════════ HOME ══════════════ */
-.hero{
-  position:relative;overflow:hidden;
-  min-height:calc(100vh - 60px);
-  display:flex;align-items:center;
-  background-color:#e8edf6;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(99,140,246,0.13) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(147,197,253,0.10) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 85% 85%, rgba(59,130,246,0.07) 0%, transparent 50%),
-    radial-gradient(circle, #b0bcda 1px, transparent 1px);
-  background-size:auto,auto,auto,32px 32px;
-  background-position:center,center,center,0 0;
-}
-.hero::before{
-  content:'';position:absolute;top:-20%;left:30%;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(99,130,246,0.10) 0%,transparent 65%);
-  animation:blobFloat 10s ease-in-out infinite;
-  pointer-events:none;z-index:0;
-}
-@keyframes blobFloat{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(40px,-30px) scale(1.05)}
-  66%{transform:translate(-20px,20px) scale(0.97)}
-}
-.dash-wrap{
-  position:absolute;right:2%;top:50%;transform:translateY(-50%);
-  width:56%;max-width:680px;
-  opacity:0.22;pointer-events:none;z-index:0;
-}
-.dash-mock{background:#fff;border-radius:14px;box-shadow:0 24px 80px rgba(15,23,41,0.18);padding:18px}
-.dm-bar2{display:flex;align-items:center;gap:7px;margin-bottom:12px}
-.dm-dot{width:9px;height:9px;border-radius:50%}
-.dm-dot:nth-child(1){background:#ff5f57}.dm-dot:nth-child(2){background:#febc2e}.dm-dot:nth-child(3){background:#28c840}
-.dm-ttl{font-size:0.62rem;color:#94a3b8;margin-left:6px}
-.dm-nav2{display:flex;gap:10px;margin-bottom:14px}
-.dm-ni{font-size:0.6rem;color:#94a3b8;padding:3px 9px;border-radius:4px}
-.dm-ni.a{background:#eef2fd;color:#1d4ed8}
-.dm-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
-.dm-kpi{background:#f8faff;border-radius:7px;padding:10px;border:1px solid #e8ecf4}
-.dk-l{font-size:0.48rem;color:#94a3b8;margin-bottom:5px;text-transform:uppercase}
-.dk-v{font-size:1rem;font-weight:700;color:#0f172a}
-.dk-s{font-size:0.45rem;color:#22c55e;margin-top:1px}
-.dm-chart2{background:#f8faff;border-radius:7px;padding:12px;margin-bottom:10px;border:1px solid #e8ecf4}
-.dc-t{font-size:0.48rem;color:#94a3b8;margin-bottom:8px}
-.dc-bars{display:flex;align-items:flex-end;gap:5px;height:55px}
-.dc-b{flex:1;border-radius:2px 2px 0 0;background:linear-gradient(to top,#1d4ed8,#60a5fa)}
-.dm-r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.dm-m{background:#f8faff;border-radius:7px;padding:10px;border:1px solid #e8ecf4}
-.dm-mt{font-size:0.48rem;color:#94a3b8;margin-bottom:6px}
-.dm-pie{display:flex;gap:6px;align-items:center}
-.dp-c{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:conic-gradient(#1d4ed8 0% 60%,#60a5fa 60% 80%,#bfdbfe 80% 100%)}
-.dp-l{display:flex;flex-direction:column;gap:3px}
-.dp-i{display:flex;align-items:center;gap:3px;font-size:0.45rem;color:#64748b}
-.dp-d{width:5px;height:5px;border-radius:50%}
-.dm-bars2{display:flex;flex-direction:column;gap:4px}
-.dm-b2r{font-size:0.45rem;color:#64748b;display:flex;justify-content:space-between;margin-bottom:1px}
-.dm-bp{height:3px;background:#e2e8f0;border-radius:2px}
-.dm-bv{height:100%;border-radius:2px;background:#1d4ed8}
-
-.hero-overlay{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(to right,#e8edf6 34%,rgba(232,237,246,0.72) 56%,rgba(232,237,246,0.06) 100%);
-}
-.hero-content{
-  position:relative;z-index:2;
-  padding:48px 52px;max-width:580px;width:100%;
-}
-.hero-name{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800;color:#0f172a;letter-spacing:-0.035em;line-height:1.0;margin-bottom:12px}
-.hero-role{font-size:clamp(1rem,2.5vw,1.25rem);font-weight:400;color:#64748b;margin-bottom:16px}
-.hero-desc{font-size:clamp(0.875rem,2vw,0.975rem);color:#64748b;line-height:1.72;max-width:420px;margin-bottom:34px}
-.hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-
-/* COMPETENCIES */
-.comp-section{padding:72px 48px 80px;background:#f8f9fc}
-.comp-inner{max-width:1060px;margin:0 auto}
-.comp-h{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:700;color:#0f172a;text-align:center;letter-spacing:-0.025em;margin-bottom:10px}
-.comp-sub{font-size:0.925rem;color:#64748b;text-align:center;line-height:1.65;max-width:520px;margin:0 auto 48px}
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;max-width:880px;margin-left:auto;margin-right:auto}
-.comp-card{
-  background:#fff;border-radius:14px;padding:22px 20px;
-  border:1px solid #e8ecf2;display:flex;align-items:center;gap:18px;
-  box-shadow:0 1px 8px rgba(15,23,41,0.04);
-  transition:transform 0.22s cubic-bezier(0.16,1,0.3,1),box-shadow 0.22s,border-color 0.22s;
-  cursor:default;overflow:visible;
-}
-.comp-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(15,23,41,0.08);border-color:#d4daea}
-.comp-icon-wrap{width:48px;height:48px;min-width:48px;border-radius:11px;background:rgba(29,78,216,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s,transform 0.2s}
-.comp-icon-wrap svg{width:22px;height:22px}
-.comp-card:hover .comp-icon-wrap{background:rgba(29,78,216,0.13);transform:scale(1.08)}
-.comp-card-title{font-size:0.925rem;font-weight:700;color:#0f172a;margin-bottom:4px;line-height:1.3}
-.comp-card-desc{font-size:0.78rem;color:#64748b;line-height:1.5}
-.comp-cta{text-align:center}
-
-/* ══════════════ ABOUT ══════════════ */
-.about-hero{background:linear-gradient(135deg,#f8faff 0%,#eef2ff 100%);padding:64px 48px 56px;border-bottom:1px solid #e8ecf2}
-.about-hero-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:52px;align-items:start}
-.about-card{
-  background:#fff;border-radius:20px;padding:32px;
-  border:1px solid #e2e8f0;box-shadow:0 8px 28px rgba(15,23,41,0.06);
-  text-align:center;transition:transform 0.3s,box-shadow 0.3s;
-}
-.about-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(15,23,41,0.1)}
-.about-avatar{width:80px;height:80px;border-radius:18px;background:linear-gradient(135deg,#1d4ed8,#60a5fa);display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:800;color:#fff;margin:0 auto 16px;box-shadow:0 8px 22px rgba(29,78,216,0.24)}
-.ac-name{font-size:1.1rem;font-weight:700;color:#0f172a;margin-bottom:3px}
-.ac-role{font-size:0.82rem;color:#1d4ed8;font-weight:500;margin-bottom:16px}
-.ac-info{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
-.aci{display:flex;align-items:center;justify-content:center;gap:7px;font-size:0.8rem;color:#64748b}
-.aci a{color:#1d4ed8;text-decoration:none}.aci a:hover{text-decoration:underline}
-.avail-chip{background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.18);color:#16a34a;border-radius:8px;padding:9px 13px;font-size:0.76rem;display:flex;align-items:center;gap:7px;text-align:left}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
-.page-bio{font-size:0.975rem;color:#64748b;line-height:1.75}
-.page-bio strong{color:#0f172a;font-weight:600}
-
-.about-body{padding:56px 48px 0;max-width:860px;margin:0 auto}
-.s-title{font-size:0.95rem;font-weight:700;color:#0f172a;margin-bottom:14px}
-
-/* TECHNICAL SKILLS */
-.tech-skills-section{padding:52px 48px 0;background:#fff;border-top:1px solid #f1f5f9}
-.tss-inner{max-width:960px;margin:0 auto}
-.tss-heading{font-size:clamp(1.3rem,3vw,1.6rem);font-weight:700;color:#0f172a;margin-bottom:8px;letter-spacing:-0.02em}
-.tss-sub{font-size:0.875rem;color:#64748b;line-height:1.6;max-width:460px;margin-bottom:40px}
-.tss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 20px;padding-bottom:52px}
-.tss-item{
-  display:flex;align-items:center;gap:14px;
-  padding:10px 8px;border-radius:10px;
-  transition:transform 0.2s,background 0.2s;cursor:default;
-}
-.tss-item:hover{transform:translateY(-3px);background:rgba(29,78,216,0.03)}
-.tss-icon-wrap{
-  width:48px;height:48px;min-width:48px;border-radius:12px;
-  background:#eef2fb;display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s,transform 0.2s;flex-shrink:0;
-}
-.tss-item:hover .tss-icon-wrap{background:#dde6f8;transform:scale(1.08)}
-.tss-icon-wrap svg{width:22px;height:22px;stroke:#2d5be3;fill:none;stroke-width:1.8}
-.tss-name{font-size:0.95rem;font-weight:700;color:#0f172a;margin-bottom:2px}
-.tss-level{font-size:0.78rem;color:#94a3b8;font-weight:400}
-
-.tools-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0}
-.tool-chip{background:#f1f5f9;color:#64748b;padding:6px 16px;border-radius:100px;font-size:0.79rem;font-weight:500;border:1px solid #e2e8f0;transition:all 0.15s;cursor:default}
-.tool-chip:hover{background:rgba(29,78,216,0.07);color:#1d4ed8;border-color:rgba(29,78,216,0.18);transform:translateY(-2px)}
-
-/* ══════════════ PORTFOLIO ══════════════ */
-.portfolio-page{background:#f8f9fc;padding:56px 48px 72px}
-.portfolio-inner{max-width:1060px;margin:0 auto}
-.port-header{margin-bottom:40px}
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.proj-card{
-  background:#fff;border-radius:17px;border:1px solid #e8ecf2;overflow:hidden;
-  box-shadow:0 2px 10px rgba(15,23,41,0.04);
-  transition:transform 0.28s cubic-bezier(0.16,1,0.3,1),box-shadow 0.28s;
-}
-.proj-card:hover{transform:translateY(-7px);box-shadow:0 16px 44px rgba(15,23,41,0.10)}
-.proj-thumb{height:180px;position:relative;overflow:hidden}
-.proj-thumb-bg{position:absolute;inset:0;transition:transform 0.45s}
-.proj-card:hover .proj-thumb-bg{transform:scale(1.05)}
-.pt1{background:linear-gradient(135deg,#1e3a8a,#3b82f6)}.pt2{background:linear-gradient(135deg,#312e81,#7c3aed,#60a5fa)}.pt3{background:linear-gradient(135deg,#0c4a6e,#0284c7)}.pt4{background:linear-gradient(135deg,#1e3a8a,#0ea5e9)}
-.proj-thumb-overlay{position:absolute;inset:0;background:rgba(15,23,41,0.15)}
-.proj-thumb-top{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
-.ptag{background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:3px 11px;font-size:0.65rem;font-weight:600;white-space:nowrap}
-.ptag2{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);border-radius:100px;padding:3px 9px;font-size:0.63rem;white-space:nowrap}
-.proj-thumb-icon{position:absolute;bottom:12px;right:12px;font-size:2.2rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.25))}
-.proj-body{padding:18px 18px 20px}
-.proj-title{font-size:0.95rem;font-weight:700;color:#0f172a;margin-bottom:6px;line-height:1.35}
-.proj-desc{font-size:0.78rem;color:#64748b;line-height:1.6;margin-bottom:12px}
-.proj-stats{display:flex;gap:14px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #f1f5f9}
-.ps{display:flex;flex-direction:column}
-.ps-num{font-size:0.85rem;font-weight:700;color:#0f172a}
-.ps-lbl{font-size:0.58rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
-.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:13px}
-.proj-tag{background:#f1f5f9;color:#64748b;border-radius:5px;padding:3px 9px;font-size:0.67rem;font-weight:500}
-.proj-link{display:inline-flex;align-items:center;gap:5px;color:#1d4ed8;font-size:0.82rem;font-weight:600;text-decoration:none;transition:gap 0.15s}
-.proj-link:hover{gap:9px}
-
-/* ══════════════ CONTACT ══════════════ */
-.contact-page{background:#f8f9fc;padding:56px 48px 72px}
-.contact-inner{max-width:960px;margin:0 auto}
-.contact-wrap{background:#fff;border-radius:20px;border:1px solid #e8ecf2;overflow:hidden;box-shadow:0 4px 22px rgba(15,23,41,0.05)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr}
-.contact-left{padding:48px;background:linear-gradient(155deg,#0f1729 0%,#1a2f6a 100%);position:relative;overflow:hidden}
-.cl-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.023) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.023) 1px,transparent 1px);background-size:34px 34px}
-.cl-glow{position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,0.22) 0%,transparent 70%)}
-.contact-left h2{font-family:'Outfit',sans-serif;font-size:1.55rem;font-weight:700;color:#fff;letter-spacing:-0.02em;margin-bottom:12px;position:relative;z-index:1}
-.contact-left p{color:rgba(255,255,255,0.52);font-size:0.875rem;line-height:1.7;margin-bottom:30px;position:relative;z-index:1}
-.ci-list{display:flex;flex-direction:column;gap:11px;position:relative;z-index:1}
-.ci-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:12px 14px;transition:background 0.15s,transform 0.2s}
-.ci-item:hover{background:rgba(255,255,255,0.09);transform:translateX(4px)}
-.ci-ico{width:34px;height:34px;border-radius:8px;background:rgba(29,78,216,0.32);display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0}
-.ci-lbl{font-size:0.6rem;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px}
-.ci-val{font-size:0.82rem;color:#fff;font-weight:500}
-.ci-val a{color:#93c5fd;text-decoration:none}.ci-val a:hover{text-decoration:underline}
-.avail-box{margin-top:16px;position:relative;z-index:1;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.16);border-radius:9px;padding:12px 14px;display:flex;align-items:flex-start;gap:9px}
-.ab-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;margin-top:3px;animation:pulse 2s infinite}
-.ab-txt{font-size:0.77rem;color:rgba(255,255,255,0.55);line-height:1.5}
-.contact-right{padding:48px}
-.contact-right h3{font-size:1.15rem;font-weight:700;color:#0f172a;margin-bottom:5px}
-.contact-right .sub-txt{font-size:0.82rem;color:#94a3b8;margin-bottom:26px}
-.form-group{margin-bottom:16px}
-.form-lbl{display:block;font-size:0.76rem;font-weight:600;color:#374151;margin-bottom:6px}
-.form-inp{width:100%;padding:11px 14px;background:#f8f9fc;border:1.5px solid #e2e8f0;border-radius:9px;font-family:'Outfit',sans-serif;font-size:0.875rem;color:#0f172a;outline:none;transition:border-color 0.15s,background 0.15s,box-shadow 0.15s}
-.form-inp:focus{background:#fff;border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,0.07)}
-textarea.form-inp{resize:vertical;min-height:100px}
-.form-btn{width:100%;padding:13px;background:#1d4ed8;color:#fff;border:none;border-radius:9px;font-family:'Outfit',sans-serif;font-size:0.925rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.15s;box-shadow:0 4px 16px rgba(29,78,216,0.26)}
-.form-btn:hover{background:#1e40af;transform:translateY(-2px);box-shadow:0 6px 22px rgba(29,78,216,0.34)}
-.form-note{font-size:0.73rem;color:#94a3b8;text-align:center;margin-top:10px}
-.form-note a{color:#1d4ed8;text-decoration:none}.form-note a:hover{text-decoration:underline}
-
-/* ══════════════════════════════════════
-   RESPONSIVE — TABLET (≤900px)
-══════════════════════════════════════ */
-@media(max-width:900px){
-  nav{padding:0 20px}
-  .nav-center,.nav-gh{display:none}
-  .hamburger{display:flex}
-
-  .hero-content{padding:40px 24px;max-width:100%}
-  .dash-wrap{opacity:0.15;width:65%}
-
-  .comp-section{padding:56px 24px 64px}
-  .comp-grid{grid-template-columns:1fr 1fr;gap:12px;max-width:100%}
-  .comp-card{padding:18px 16px;gap:14px}
-  .comp-icon-wrap{width:42px;height:42px;min-width:42px}
-
-  .about-hero{padding:44px 24px 48px}
-  .about-hero-inner{grid-template-columns:1fr;gap:28px}
-  .about-body{padding:44px 24px 0}
-
-  .tech-skills-section{padding:44px 24px 0}
-  .tss-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px;padding-bottom:44px}
-
-  .portfolio-page{padding:44px 24px 60px}
-  .proj-grid{grid-template-columns:1fr 1fr;gap:16px}
-
-  .contact-page{padding:44px 24px 60px}
-  .contact-grid{grid-template-columns:1fr}
-  .contact-left,.contact-right{padding:32px 24px}
-
-  .site-footer{padding:36px 24px 0}
-  .footer-inner{grid-template-columns:1fr 1fr;gap:28px}
+.hero-grid, .about-grid, .skills-grid, .projects-grid, .contact-grid {
+  perspective: 1200px;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — MOBILE (≤600px)
-══════════════════════════════════════ */
-@media(max-width:600px){
-  .hero-content{padding:36px 18px}
-  .hero-name{font-size:2.5rem}
-  .hero-role{font-size:1rem}
-  .hero-desc{font-size:0.875rem;max-width:100%}
-  .hero-btns{flex-direction:column;align-items:flex-start;gap:10px}
-  .btn-solid,.btn-outline{width:100%;justify-content:center;font-size:0.9rem}
-  .dash-wrap{display:none}
-  .hero-overlay{background:#e8edf6}
+/* Nav glass effect */
+.nav-inner, .nav-desktop {
+  backdrop-filter: blur(16px);
+}
+.nav-brand {
+  background: linear-gradient(90deg, #ffffff, #999999, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: text-shimmer 6s linear infinite;
+}
+.nav-cta {
+  background: linear-gradient(135deg, #444444, #111111) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 25px rgba(255,255,255,0.15) !important; }
 
-  .comp-section{padding:44px 18px 52px}
-  .comp-grid{grid-template-columns:1fr;gap:10px}
-  .comp-h{font-size:1.5rem}
+/* Hero */
+.hero { position: relative; overflow: hidden; }
+.hero::after {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255,255,255,0.04) 60deg, rgba(255,255,255,0.08) 120deg, rgba(255,255,255,0.03) 180deg, transparent 240deg);
+  animation: spin-glow 24s linear infinite; pointer-events: none; z-index: 0;
+}
+.hero-title, .hero-title-accent {
+  background: linear-gradient(90deg, #ffffff 0%, #999999 25%, #ffffff 50%, #666666 75%, #ffffff 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: text-shimmer 7s linear infinite;
+}
+.hero-eyebrow {
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  background: rgba(255,255,255,0.05) !important;
+  animation: shimmer-border 4s ease infinite !important;
+}
+.hero-card {
+  transform-style: preserve-3d;
+  animation: float-card 6s ease-in-out infinite;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hero-card:hover {
+  transform: translateZ(20px) rotateX(3deg) rotateY(-3deg) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(255,255,255,0.12) !important;
+}
+.hero-avatar {
+  animation: pulse-glow 3s ease-in-out infinite !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+}
+.hero-stat {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+.hero-stat:hover {
+  transform: translateZ(12px) scale(1.05) !important;
+  border-color: rgba(255,255,255,0.4) !important;
+  box-shadow: 0 12px 30px rgba(255,255,255,0.1) !important;
+}
+.hero-stat-value {
+  background: linear-gradient(135deg, #ffffff, #999999);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-tag {
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.04) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+.hero-tag:hover { transform: translateY(-3px) scale(1.05) !important; border-color: rgba(255,255,255,0.5) !important; }
 
-  .about-hero{padding:36px 18px 40px}
-  .about-body{padding:36px 18px 0}
-  .tss-grid{grid-template-columns:1fr 1fr;gap:14px 10px;padding-bottom:36px}
-  .tss-icon-wrap{width:42px;height:42px;min-width:42px}
-  .tss-name{font-size:0.875rem}
-
-  .portfolio-page{padding:36px 18px 52px}
-  .proj-grid{grid-template-columns:1fr}
-  .proj-thumb{height:160px}
-
-  .contact-page{padding:36px 18px 52px}
-  .contact-left,.contact-right{padding:26px 20px}
-  .contact-left h2{font-size:1.3rem}
-
-  .site-footer{padding:32px 18px 0}
-  .footer-inner{grid-template-columns:1fr;gap:24px}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
-  .f-legal{flex-wrap:wrap;gap:12px}
-
-  .btn-learn{width:100%;justify-content:center}
+.btn-primary {
+  background: linear-gradient(135deg, #3a3a3a 0%, #ffffff 50%, #3a3a3a 100%) !important;
+  background-size: 220% 220% !important;
+  color: #000000 !important;
+  animation: text-shimmer 5s linear infinite !important;
+  box-shadow: 0 4px 20px rgba(255,255,255,0.2), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.btn-primary:hover {
+  transform: translateY(-4px) translateZ(8px) !important;
+  box-shadow: 0 10px 35px rgba(255,255,255,0.35) !important;
+}
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  background: rgba(255,255,255,0.03) !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+.btn-ghost:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255,255,255,0.7) !important;
+  box-shadow: 0 8px 25px rgba(255,255,255,0.12) !important;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — SMALL MOBILE (≤400px)
-══════════════════════════════════════ */
-@media(max-width:400px){
-  .hero-name{font-size:2.1rem}
-  .tss-grid{grid-template-columns:1fr}
-  .comp-card-title{font-size:0.85rem}
+/* About */
+.about-heading, .about-label, .section-label {
+  background: linear-gradient(90deg, #ffffff, #888888, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: text-shimmer 6s linear infinite;
 }
-</style>
-</head>
+.about-img-wrap {
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6) !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+.about-img-wrap:hover {
+  transform: rotateY(-6deg) rotateX(3deg) translateZ(14px) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 50px rgba(255,255,255,0.1) !important;
+}
+.about-domain {
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  background: rgba(255,255,255,0.04) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.about-domain:hover { transform: translateY(-3px) !important; box-shadow: 0 6px 18px rgba(255,255,255,0.1) !important; }
+.availability-dot { animation: pulse-glow 2.4s ease-in-out infinite; }
+
+/* Skills */
+.skill-card {
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+.skill-card:hover {
+  transform: translateY(-8px) rotateX(6deg) rotateY(-3deg) translateZ(10px) !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 24px 55px rgba(255,255,255,0.1) !important;
+}
+.skill-bar-fill {
+  background: linear-gradient(90deg, #555555 0%, #ffffff 50%, #555555 100%) !important;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3) !important;
+}
+.skill-level {
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  background: rgba(255,255,255,0.08) !important;
+  color: #eeeeee !important;
+}
+
+/* Projects */
+.project-card {
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+.project-card:hover {
+  transform: translateY(-10px) rotateX(4deg) rotateY(-2deg) translateZ(12px) !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 30px 70px rgba(255,255,255,0.1) !important;
+}
+.project-card::before { background: linear-gradient(90deg, #444444, #ffffff, #444444) !important; }
+.project-stat-val {
+  background: linear-gradient(135deg, #ffffff, #999999);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.project-domain {
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.05) !important;
+  color: #dddddd !important;
+}
+
+/* Scroll-triggered reveal (CSS-only, gracefully no-ops on unsupported browsers) */
+@supports (animation-timeline: view()) {
+  .skills-header, .projects-header, .skill-card, .project-card, .about-img-wrap {
+    animation: fade-rise 0.8s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
+/* ---- Dynamic sticky header: gains depth as the page scrolls (CSS-only) ---- */
+nav {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes nav-on-scroll {
+    from { box-shadow: 0 0 0 rgba(0,0,0,0); border-bottom-color: rgba(255,255,255,0.08); }
+    to   { box-shadow: 0 8px 30px rgba(0,0,0,0.55); border-bottom-color: rgba(255,255,255,0.25); }
+  }
+  nav {
+    animation: nav-on-scroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
+  }
+}
+
+/* ---- Contact form panel ---- */
+.contact-form-panel {
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 0 40px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.contact-form-panel:hover {
+  transform: translateZ(6px);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.6), 0 0 55px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem; }
+
+.form-field { position: relative; }
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 10px;
+  padding: 1.1rem 0.9rem 0.5rem;
+  color: #f5f5f5;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.form-field textarea { min-height: 8rem; padding-top: 1.3rem; }
+
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: rgba(255,255,255,0.3);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.08), 0 0 25px rgba(255,255,255,0.1);
+}
+
+/* Floating label — pure CSS, no JS required */
+.form-field label {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.9rem;
+  color: #888888;
+  font-size: var(--text-base);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  top: 0.35rem;
+  font-size: var(--text-xs);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.contact-submit {
+  margin-top: 0.25rem;
+  width: 100%;
+  justify-content: center;
+}
+.contact-submit svg { transition: transform 0.3s ease; }
+.contact-submit:hover svg { transform: translate(2px, -2px) rotate(8deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  nav { animation: none !important; }
+}
+</style><style>
+:root {
+  --text-xs:      0.75rem;
+  --text-sm:      0.8125rem;
+  --text-base:    1rem;
+  --text-lg:      1.125rem;
+  --text-xl:      1.25rem;
+  --text-2xl:     1.5rem;
+  --text-3xl:     1.875rem;
+  --text-4xl:     2.25rem;
+  --text-display: 3.5rem;
+  --duration-fast:  150ms;
+  --duration-base:  250ms;
+  --duration-slow:  400ms;
+  --duration-xslow: 600ms;
+  --nav-height:     64px;
+  --font-display: acumin-pro, helvetica-neue, sans-serif;
+  --font-body:    proxima-nova, helvetica-neue, sans-serif;
+  --font-mono:    courier-new, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  word-spacing: 0.16em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--text-display); font-weight: 700; }
+h2 { font-size: var(--text-4xl); font-weight: 700; }
+h3 { font-size: var(--text-2xl); font-weight: 600; }
+h4 { font-size: var(--text-xl); font-weight: 600; }
+
+p { line-height: 1.7; }
+p + p { margin-top: 1.5em; }
+
+a { color: var(--link); text-decoration: none; transition: color var(--duration-fast) ease; }
+a:hover { color: var(--link-hover); }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style><style>
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background-color: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.nav-brand span {
+  color: var(--text-display-accent);
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-desktop a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--duration-fast) ease;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-desktop a:hover { color: var(--text); }
+
+.nav-cta {
+  background-color: var(--primary);
+  color: var(--text-on-accent) !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 4px;
+  font-weight: 600 !important;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease !important;
+}
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.nav-mobile { display: none; }
+
+details.nav-mobile summary { list-style: none; }
+details.nav-mobile summary::-webkit-details-marker { display: none; }
+
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+details.nav-mobile .nav-drawer { display: none; }
+details.nav-mobile[open] .nav-drawer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0; right: 0;
+  background-color: var(--surface-strong);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem clamp(1rem, 5vw, 3rem);
+  gap: 1rem;
+}
+
+.nav-drawer a {
+  font-size: var(--text-base);
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .nav-desktop { display: none; }
+  .nav-mobile { display: block; }
+}
+</style><style>
+.hero {
+  padding-top: calc(var(--nav-height) + 5rem);
+  padding-bottom: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--hero-glow) 10%, transparent) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  margin-bottom: 1.5rem;
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5vw, var(--text-display));
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.hero-title-accent {
+  color: var(--text-display-accent);
+}
+
+.hero-body {
+  font-size: var(--text-lg);
+  color: var(--fg);
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-on-accent);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: var(--text-base);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  text-decoration: none;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); color: var(--text-on-accent); }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: var(--text-base);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) ease, color var(--duration-fast) ease, transform var(--duration-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--text-display-accent); }
+.btn-ghost:active { transform: scale(0.97); }
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 50%, var(--surface)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-on-accent);
+  flex-shrink: 0;
+}
+
+.hero-card-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.hero-card-role {
+  font-size: var(--text-sm);
+  color: var(--fg);
+}
+
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.hero-stat {
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-display-accent);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat-label {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.hero-tag {
+  font-size: var(--text-xs);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--text-display-accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  letter-spacing: 0.05em;
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-1.5rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(1.5rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero-content { animation: fade-in-left var(--duration-slow) ease both; }
+.hero-visual   { animation: fade-in-right var(--duration-slow) ease 150ms both; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { justify-content: flex-start; }
+  .hero-card { max-width: 100%; }
+}
+</style><style>
+.about {
+  padding: 6rem 0;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  margin-bottom: 1rem;
+}
+
+.about-heading {
+  font-size: clamp(2rem, 4vw, var(--text-4xl));
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.about-body {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-domains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-domain {
+  font-size: var(--text-sm);
+  color: var(--text);
+  background-color: color-mix(in srgb, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+}
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background-color: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-badge-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.about-badge-text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+</style><style>
+.skills {
+  padding: 6rem 0;
+  background-color: var(--bg);
+}
+
+.skills-header {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 3.5vw, var(--text-4xl));
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.section-subhead {
+  font-size: var(--text-lg);
+  color: var(--fg);
+  max-width: 52ch;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.skill-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease;
+}
+
+.skill-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-3px);
+}
+
+.skill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.skill-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.skill-level {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.skill-bar-track {
+  height: 4px;
+  background-color: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  background-color: var(--accent);
+  animation: grow-bar var(--duration-xslow) ease both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 60%;
+}
+
+@keyframes grow-bar {
+  from { width: 0; }
+}
+
+@media (max-width: 860px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style><style>
+.projects {
+  padding: 6rem 0;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-header {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease, box-shadow var(--duration-base) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background-color: var(--accent);
+  opacity: 0;
+  transition: opacity var(--duration-base) ease;
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-domain {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+
+.project-gh-link {
+  color: var(--fg);
+  transition: color var(--duration-fast) ease;
+  min-width: 24px; min-height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.25rem;
+}
+.project-gh-link:hover { color: var(--text-display-accent); }
+
+.project-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tech {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.project-desc {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.project-stat-val {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-display-accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.project-stat-key {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  letter-spacing: 0.04em;
+}
+
+/* Featured card — spans 2 columns */
+.project-card-featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card-featured .project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-card-featured .project-visual {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 200px;
+  border: 1px solid var(--border);
+}
+
+.project-card-featured .project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card-featured { grid-column: span 2; }
+}
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .project-card-featured .project-visual { min-height: 160px; }
+}
+</style><style>
+.contact {
+  padding: 6rem 0;
+  background-color: var(--bg);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-heading {
+  font-size: clamp(2rem, 4vw, var(--text-4xl));
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text);
+}
+
+.contact-body {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.8;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  transition: border-color var(--duration-base) ease;
+}
+
+.contact-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.contact-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-display-accent);
+}
+
+.contact-item-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.15rem;
+}
+
+.contact-item-value {
+  font-size: var(--text-sm);
+  color: var(--text);
+  text-decoration: none;
+}
+
+a.contact-item-value {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+a.contact-item-value:hover { color: var(--link-hover); }
+
+.contact-right {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-right-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.contact-right-sub {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.contact-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-direct {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  margin-top: 0.5rem;
+}
+
+.contact-direct a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.contact-direct a:hover { color: var(--link-hover); }
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: color-mix(in srgb, #ffffff 10%, transparent);
+  border: 1px solid color-mix(in srgb, #ffffff 25%, transparent);
+  color: #e5e5e5;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.availability-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style><style>
+footer {
+  background-color: var(--surface-strong);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  --link: #878787;
+  --link-hover: #ffffff;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-on-surface-strong);
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-tagline {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links-col-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.25rem;
+}
+
+.footer-links-col a {
+  font-size: var(--text-sm);
+  color: var(--link);
+  text-decoration: none;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  transition: color var(--duration-fast) ease;
+}
+.footer-links-col a:hover { color: var(--link-hover); }
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-legal {
+  font-size: var(--text-xs);
+  color: var(--fg);
+}
+
+.footer-legal a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.footer-legal a:hover { color: var(--link-hover); }
+
+.footer-gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--link);
+  transition: color var(--duration-fast) ease;
+  min-height: 24px;
+  padding: 0.25rem;
+  text-decoration: none;
+}
+.footer-gh-link:hover { color: var(--link-hover); }
+</style></head>
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="#" class="nav-brand" onclick="show('home');return false">Nihar Toor</a>
-  <div class="nav-center">
-    <button class="nav-btn active" id="btn-home"      onclick="show('home')">Home</button>
-    <button class="nav-btn"        id="btn-about"     onclick="show('about')">About</button>
-    <button class="nav-btn"        id="btn-portfolio" onclick="show('portfolio')">Portfolio</button>
-    <button class="nav-btn"        id="btn-contact"   onclick="show('contact')">Contact</button>
+<!-- fh-stream:base -->
+<style id="page-theme">:root {
+  --bg: #000000;
+  --surface: #111111;
+  --surface-strong: #666666;
+  --text: #f5f5f5;
+  --fg: #878787;
+  --accent: #666666;
+  --muted: #878787;
+  --border: #878787;
+  --primary: #ffffff;
+  --link: #878787;
+  --link-hover: #ffffff;
+  --link-on-strong: #f5f5f5;
+  --link-hover-on-strong: #ffffff;
+  --text-on-accent: #ffffff;
+  --text-on-surface-strong: #f5f5f5;
+  --text-display-accent: #666666;
+  --hero-glow: #666666;
+  --chart-1: #666666;
+  --chart-2: #666666;
+  --tb-border: #666666;
+  --tb-pop-border: #666666;
+  --tb-swatch-border: #666666;
+  --tb-img-pop-border: #666666;
+  --tb-img-pop-input-border: #666666;
+  color-scheme: dark;
+}
+footer, [class*='footer'], .site-footer {
+  --link: var(--link-on-strong);
+  --link-hover: var(--link-hover-on-strong);
+}</style>
+
+<style>
+:root {
+  --text-xs:      0.75rem;
+  --text-sm:      0.8125rem;
+  --text-base:    1rem;
+  --text-lg:      1.125rem;
+  --text-xl:      1.25rem;
+  --text-2xl:     1.5rem;
+  --text-3xl:     1.875rem;
+  --text-4xl:     2.25rem;
+  --text-display: 3.5rem;
+  --duration-fast:  150ms;
+  --duration-base:  250ms;
+  --duration-slow:  400ms;
+  --duration-xslow: 600ms;
+  --nav-height:     64px;
+  --font-display: acumin-pro, helvetica-neue, sans-serif;
+  --font-body:    proxima-nova, helvetica-neue, sans-serif;
+  --font-mono:    courier-new, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  word-spacing: 0.16em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--text-display); font-weight: 700; }
+h2 { font-size: var(--text-4xl); font-weight: 700; }
+h3 { font-size: var(--text-2xl); font-weight: 600; }
+h4 { font-size: var(--text-xl); font-weight: 600; }
+
+p { line-height: 1.7; }
+p + p { margin-top: 1.5em; }
+
+a { color: var(--link); text-decoration: none; transition: color var(--duration-fast) ease; }
+a:hover { color: var(--link-hover); }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+
+<!-- fh-stream:section:nav -->
+<style>
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background-color: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.nav-brand span {
+  color: var(--text-display-accent);
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-desktop a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--duration-fast) ease;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-desktop a:hover { color: var(--text); }
+
+.nav-cta {
+  background-color: var(--primary);
+  color: var(--text-on-accent) !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 4px;
+  font-weight: 600 !important;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease !important;
+}
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.nav-mobile { display: none; }
+
+details.nav-mobile summary { list-style: none; }
+details.nav-mobile summary::-webkit-details-marker { display: none; }
+
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+details.nav-mobile .nav-drawer { display: none; }
+details.nav-mobile[open] .nav-drawer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0; right: 0;
+  background-color: var(--surface-strong);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem clamp(1rem, 5vw, 3rem);
+  gap: 1rem;
+}
+
+.nav-drawer a {
+  font-size: var(--text-base);
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .nav-desktop { display: none; }
+  .nav-mobile { display: block; }
+}
+</style>
+
+<nav aria-label="Primary navigation" data-name="Nav" analytics-name="header" data-fh-id="fh-1" style="">
+  <div class="nav-inner" data-fh-id="fh-2" data-name="Nav inner" analytics-name="div">
+    <span class="nav-brand" data-name="Nav brand" analytics-name="text" data-fh-id="fh-3">Nihar&nbsp;Toor</span>
+    <div class="nav-desktop" data-name="Nav links" analytics-name="div-container" data-fh-id="fh-5">
+      <a data-name="Nav about" analytics-name="button" data-fh-id="fh-6" href="#about">About</a>
+      <a data-name="Nav skills" analytics-name="button" data-fh-id="fh-7" href="#skills">Skills</a>
+      <a data-name="Nav projects" analytics-name="button" data-fh-id="fh-8" href="#projects">Projects</a>
+      <a class="nav-cta __freeform_button__" data-name="Nav CTA" analytics-name="button" data-fh-id="fh-9" href="#contact">Hire Me</a>
+    </div>
+    <details class="nav-mobile" data-name="Mobile nav" analytics-name="header" data-fh-id="fh-10">
+      <summary class="nav-toggle" aria-label="Open navigation menu" data-fh-id="fh-11" data-name="Nav toggle">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-fh-collection="items">
+          <line x1="3" y1="6" x2="19" y2="6" data-fh-item=""></line>
+          <line x1="3" y1="11" x2="19" y2="11" data-fh-item=""></line>
+          <line x1="3" y1="16" x2="19" y2="16" data-fh-item="" data-fh-item-template=""></line>
+        </svg>
+      </summary>
+      <div class="nav-drawer" data-fh-id="fh-12" data-name="Nav drawer" analytics-name="div" data-fh-collection="nav-drawer">
+        <a data-fh-id="fh-13" data-name="Link" data-fh-item="" data-fh-field="link" href="#about">About</a>
+        <a data-fh-id="fh-14" data-name="Link" data-fh-item="" data-fh-field="link" href="#skills">Skills</a>
+        <a data-fh-id="fh-15" data-name="Link" data-fh-item="" data-fh-field="link" href="#projects">Projects</a>
+        <a data-fh-id="fh-16" data-name="Link" data-fh-item="" data-fh-item-template="" data-fh-field="link" href="#contact">Hire Me</a>
+      </div>
+    </details>
   </div>
-  <a href="https://github.com/Niharricky" target="_blank" class="nav-gh" title="GitHub">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-  </a>
-  <!-- Hamburger -->
-  <button class="hamburger" id="ham" onclick="toggleMenu()" aria-label="Menu">
-    <span class="ham-line"></span>
-    <span class="ham-line"></span>
-    <span class="ham-line"></span>
-  </button>
 </nav>
 
-<!-- ── MOBILE MENU ── -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mob-btn active" id="mbtn-home"      onclick="show('home');closeMenu()">Home</button>
-  <button class="mob-btn"        id="mbtn-about"     onclick="show('about');closeMenu()">About</button>
-  <button class="mob-btn"        id="mbtn-portfolio" onclick="show('portfolio');closeMenu()">Portfolio</button>
-  <button class="mob-btn"        id="mbtn-contact"   onclick="show('contact');closeMenu()">Contact</button>
-  <a href="https://github.com/Niharricky" target="_blank" class="mob-gh" onclick="closeMenu()">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-    GitHub
-  </a>
-</div>
+<!-- fh-stream:section:hero -->
+<style>
+.hero {
+  padding-top: calc(var(--nav-height) + 5rem);
+  padding-bottom: 6rem;
+  position: relative;
+  overflow: hidden;
+}
 
-<!-- ── FOOTER TEMPLATE ── -->
-<template id="footer-tpl">
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="f-brand">Nihar Toor</div>
-        <div class="f-tag">Data Analyst specializing in transforming complex datasets into actionable insights.</div>
-      </div>
-      <div>
-        <div class="f-col-t">Quick Links</div>
-        <div class="f-links">
-          <a onclick="show('about')">About</a>
-          <a onclick="show('portfolio')">Portfolio</a>
-          <a onclick="show('contact')">Contact</a>
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--hero-glow) 10%, transparent) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  margin-bottom: 1.5rem;
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5vw, var(--text-display));
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.hero-title-accent {
+  color: var(--text-display-accent);
+}
+
+.hero-body {
+  font-size: var(--text-lg);
+  color: var(--fg);
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-on-accent);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: var(--text-base);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) ease, transform var(--duration-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  text-decoration: none;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); color: var(--text-on-accent); }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: var(--text-base);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) ease, color var(--duration-fast) ease, transform var(--duration-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--text-display-accent); }
+.btn-ghost:active { transform: scale(0.97); }
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 50%, var(--surface)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-on-accent);
+  flex-shrink: 0;
+}
+
+.hero-card-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.hero-card-role {
+  font-size: var(--text-sm);
+  color: var(--fg);
+}
+
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.hero-stat {
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-display-accent);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat-label {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.hero-tag {
+  font-size: var(--text-xs);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--text-display-accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  letter-spacing: 0.05em;
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-1.5rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(1.5rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero-content { animation: fade-in-left var(--duration-slow) ease both; }
+.hero-visual   { animation: fade-in-right var(--duration-slow) ease 150ms both; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { justify-content: flex-start; }
+  .hero-card { max-width: 100%; }
+}
+</style>
+
+<header id="hero" class="hero" aria-label="Hero" data-name="Hero section" analytics-name="hero section" data-fh-id="fh-17">
+  <div class="container" data-fh-id="fh-18" data-name="Container" analytics-name="div">
+    <div class="hero-grid" data-fh-id="fh-19" data-name="Hero grid" analytics-name="div" data-fh-layout="split">
+      <div class="hero-content" data-name="Hero content" analytics-name="1-column section" data-fh-id="fh-20" data-fh-side="text">
+        <div class="hero-eyebrow" data-name="Hero eyebrow" analytics-name="text" data-fh-id="fh-21">
+          <span class="hero-eyebrow-dot" aria-hidden="true" data-fh-id="fh-22" data-name="Hero eyebrow dot"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-title" data-name="Hero title" analytics-name="text" data-fh-id="fh-23">
+          Data Analyst<br>
+          <span class="hero-title-accent" data-fh-id="fh-24" data-name="Hero title accent">turning noise</span><br>
+          into decisions.
+        </h1>
+        <p class="hero-body" data-name="Hero body" analytics-name="text" data-fh-id="fh-25">
+          SQL, Excel, Python, Power BI, and Microsoft Fabric — end-to-end analytics across finance, HR, retail, and e-commerce. Executive-ready dashboards that drive real business choices.
+        </p>
+        <div class="hero-actions" data-name="Hero actions" analytics-name="div-container" data-fh-id="fh-26" data-fh-layout="split">
+          <a class="btn-primary __freeform_button__" data-name="View projects CTA" analytics-name="button" data-fh-id="fh-27" data-fh-side="image" href="#projects">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            View Projects
+          </a>
+          <a target="_blank" rel="noopener" class="btn-ghost __freeform_button__" data-name="GitHub CTA" analytics-name="button" data-fh-id="fh-28" data-fh-side="image" href="https://github.com/Niharricky">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            GitHub
+          </a>
         </div>
       </div>
-      <div>
-        <div class="f-col-t">Connect</div>
-        <div class="f-con-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div>
-        <div class="f-con-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg><a href="https://github.com/Niharricky" target="_blank">GitHub</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="f-copy">© 2026 Nihar Toor. All rights reserved.</div>
-      <div class="f-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
-    </div>
-  </footer>
-</template>
-
-<!-- ════════════ HOME ════════════ -->
-<div id="page-home" class="page active">
-  <section class="hero">
-    <div class="dash-wrap">
-      <div class="dash-mock">
-        <div class="dm-bar2"><div class="dm-dot"></div><div class="dm-dot"></div><div class="dm-dot"></div><span class="dm-ttl">Analytics Dashboard — 2023</span></div>
-        <div class="dm-nav2"><span class="dm-ni a">Overview</span><span class="dm-ni">Revenue</span><span class="dm-ni">Customers</span><span class="dm-ni">Reports</span></div>
-        <div class="dm-kpis">
-          <div class="dm-kpi"><div class="dk-l">Revenue</div><div class="dk-v">$57M</div><div class="dk-s">↑ 4.2%</div></div>
-          <div class="dm-kpi"><div class="dk-l">Transactions</div><div class="dk-v">667K</div><div class="dk-s">↑ 2.8%</div></div>
-          <div class="dm-kpi"><div class="dk-l">Attrition</div><div class="dk-v">16.1%</div><div class="dk-s">↓ 1.2%</div></div>
-          <div class="dm-kpi"><div class="dk-l">Customers</div><div class="dk-v">10,109</div><div class="dk-s">↑ 3.5%</div></div>
-        </div>
-        <div class="dm-chart2">
-          <div class="dc-t">Weekly Revenue Trend</div>
-          <div class="dc-bars"><div class="dc-b" style="height:38%"></div><div class="dc-b" style="height:54%"></div><div class="dc-b" style="height:46%"></div><div class="dc-b" style="height:70%"></div><div class="dc-b" style="height:60%"></div><div class="dc-b" style="height:80%"></div><div class="dc-b" style="height:66%"></div><div class="dc-b" style="height:88%"></div><div class="dc-b" style="height:74%"></div><div class="dc-b" style="height:96%"></div></div>
-        </div>
-        <div class="dm-r2">
-          <div class="dm-m"><div class="dm-mt">Card Revenue</div><div class="dm-pie"><div class="dp-c"></div><div class="dp-l"><div class="dp-i"><div class="dp-d" style="background:#1d4ed8"></div>Blue 83%</div><div class="dp-i"><div class="dp-d" style="background:#60a5fa"></div>Silver 11%</div><div class="dp-i"><div class="dp-d" style="background:#bfdbfe"></div>Other 6%</div></div></div></div>
-          <div class="dm-m"><div class="dm-mt">Expense Types</div><div class="dm-bars2"><div class="dm-b2r"><span>Bills</span><span>$14M</span></div><div class="dm-bp"><div class="dm-bv" style="width:86%"></div></div><div class="dm-b2r"><span>Entertainment</span><span>$10M</span></div><div class="dm-bp"><div class="dm-bv" style="width:63%;background:#60a5fa"></div></div><div class="dm-b2r"><span>Fuel</span><span>$10M</span></div><div class="dm-bp"><div class="dm-bv" style="width:60%;background:#93c5fd"></div></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-name">Nihar Toor</h1>
-      <p class="hero-role">Data Analyst</p>
-      <p class="hero-desc">Transforming complex datasets into actionable insights that drive strategic business decisions. Specialized in SQL, Python, Excel, and advanced analytics.</p>
-      <div class="hero-btns">
-        <button class="btn-solid" onclick="show('portfolio')">View Portfolio <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        <button class="btn-outline" onclick="show('contact')">Contact Me</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="comp-section">
-    <div class="comp-inner">
-      <h2 class="comp-h">Core Competencies</h2>
-      <p class="comp-sub">Leveraging cutting-edge tools and methodologies to extract meaningful patterns from data</p>
-      <div class="comp-grid">
-        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="comp-card-title">SQL & Database Management</div><div class="comp-card-desc">Expert in complex queries and optimization</div></div></div>
-        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M14 14l2 2 3-3"/></svg></div><div><div class="comp-card-title">Data Visualization</div><div class="comp-card-desc">Creating impactful dashboards with Excel & Power BI</div></div></div>
-        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="comp-card-title">Statistical Analysis</div><div class="comp-card-desc">Advanced analytics and predictive modeling</div></div></div>
-        <div class="comp-card"><div class="comp-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 11h2M13 8l2 2-2 2"/></svg></div><div><div class="comp-card-title">Python & Excel</div><div class="comp-card-desc">Automation and advanced data manipulation</div></div></div>
-      </div>
-      <div class="comp-cta"><button class="btn-learn" onclick="show('about')">Learn More About Me <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
-    </div>
-  </section>
-  <div id="footer-home"></div>
-</div>
-
-<!-- ════════════ ABOUT ════════════ -->
-<div id="page-about" class="page">
-  <div class="about-hero">
-    <div class="about-hero-inner">
-      <div class="about-card">
-        <div class="about-avatar">NT</div>
-        <div class="ac-name">Nihar Toor</div>
-        <div class="ac-role">Data Analyst · BI Developer</div>
-        <div class="ac-info">
-          <div class="aci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>India</div>
-          <div class="aci"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div>
-        </div>
-        <div class="avail-chip"><span class="avail-dot"></span>Available for opportunities</div>
-      </div>
-      <div>
-        <div class="page-tag">About Me</div>
-        <h2 class="page-title">Turning Raw Data Into<br>Strategic Decisions</h2>
-        <p class="page-bio">I'm an <strong>aspiring Data Analyst</strong> from India with a passion for transforming raw, complex datasets into clear, actionable business insights. I build end-to-end analytics solutions across <strong>finance, HR, retail, and e-commerce</strong> using SQL, Python, Power BI, and Microsoft Fabric — delivering executive-ready dashboards that drive real decisions.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="tech-skills-section">
-    <div class="tss-inner">
-      <h2 class="tss-heading">Technical Skills</h2>
-      <p class="tss-sub">Proficient in industry-standard tools and methodologies for data analysis and visualization</p>
-      <div class="tss-grid">
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="tss-name">SQL</div><div class="tss-level">Advanced</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="tss-name">Python</div><div class="tss-level">Advanced</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M14 14l2 2 3-3"/></svg></div><div><div class="tss-name">Power BI</div><div class="tss-level">Expert</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 7h2M7 11h2M13 8l2 2-2 2"/></svg></div><div><div class="tss-name">Excel</div><div class="tss-level">Advanced</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="tss-name">Statistics</div><div class="tss-level">Advanced</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><div class="tss-name">DAX / M Query</div><div class="tss-level">Advanced</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div><div class="tss-name">PySpark</div><div class="tss-level">Intermediate</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><div class="tss-name">MS Fabric</div><div class="tss-level">Intermediate</div></div></div>
-        <div class="tss-item"><div class="tss-icon-wrap"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div><div><div class="tss-name">Git & GitHub</div><div class="tss-level">Proficient</div></div></div>
-      </div>
-    </div>
-  </div>
-  <div id="footer-about"></div>
-</div>
-
-<!-- ════════════ PORTFOLIO ════════════ -->
-<div id="page-portfolio" class="page">
-  <div class="portfolio-page">
-    <div class="portfolio-inner">
-      <div class="port-header">
-        <div class="page-tag">Portfolio</div>
-        <h2 class="page-title">Featured Projects</h2>
-        <p style="font-size:0.9rem;color:#64748b;max-width:480px;line-height:1.65">End-to-end data analytics solutions across finance, HR, retail and sales domains.</p>
-      </div>
-      <div class="proj-grid">
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt1"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · Python · SQL</span><span class="ptag2">HR Analytics</span></div><div class="proj-thumb-icon">👥</div></div><div class="proj-body"><div class="proj-title">HR Attrition Analytics Dashboard</div><div class="proj-desc">Analyzing employee attrition patterns across demographics, tenure, compensation, and work-life balance to drive data-informed retention strategies.</div><div class="proj-stats"><div class="ps"><span class="ps-num">1,470</span><span class="ps-lbl">Employees</span></div><div class="ps"><span class="ps-num">16.12%</span><span class="ps-lbl">Attrition</span></div><div class="ps"><span class="ps-num">32</span><span class="ps-lbl">Features</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">MySQL</span><span class="proj-tag">Python</span><span class="proj-tag">DAX</span></div><a href="https://github.com/Niharricky/HR-Attrition-Analytics" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt2"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Python · SQL · Power BI</span><span class="ptag2">Retail Analytics</span></div><div class="proj-thumb-icon">🛒</div></div><div class="proj-body"><div class="proj-title">Customer Shopping Behavior Analysis</div><div class="proj-desc">Analyzing 3,900 customer purchases to uncover spending patterns, subscription drivers, and product preferences for strategic marketing optimization.</div><div class="proj-stats"><div class="ps"><span class="ps-num">3,900</span><span class="ps-lbl">Transactions</span></div><div class="ps"><span class="ps-num">$233K</span><span class="ps-lbl">Revenue</span></div><div class="ps"><span class="ps-num">10</span><span class="ps-lbl">SQL Queries</span></div></div><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">MySQL</span><span class="proj-tag">Power BI</span></div><a href="https://github.com/Niharricky/Customer_behavior_analysis" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt3"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · MySQL · DAX</span><span class="ptag2">Financial Analytics</span></div><div class="proj-thumb-icon">💳</div></div><div class="proj-body"><div class="proj-title">Credit Card Financial Dashboard</div><div class="proj-desc">Weekly financial analytics tracking $57M in credit card revenue across customer demographics and transaction behavior with WoW trend analysis.</div><div class="proj-stats"><div class="ps"><span class="ps-num">$57M</span><span class="ps-lbl">Revenue</span></div><div class="ps"><span class="ps-num">667K</span><span class="ps-lbl">Transactions</span></div><div class="ps"><span class="ps-num">10,109</span><span class="ps-lbl">Records</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">MySQL</span><span class="proj-tag">DAX</span><span class="proj-tag">Excel</span></div><a href="https://github.com/Niharricky/Credit_Card_Financial_Dashboard" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg pt4"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">MS Fabric · PySpark · SQL</span><span class="ptag2">Sales Analytics</span></div><div class="proj-thumb-icon">🏪</div></div><div class="proj-body"><div class="proj-title">Superstore Sales Analytics</div><div class="proj-desc">End-to-end analytics workflow using Microsoft Fabric and Power BI to analyze retail sales data with insights on revenue, profit, and customer behavior.</div><div class="proj-stats"><div class="ps"><span class="ps-num">4</span><span class="ps-lbl">Regions</span></div><div class="ps"><span class="ps-num">3</span><span class="ps-lbl">Categories</span></div><div class="ps"><span class="ps-num">Multi-yr</span><span class="ps-lbl">Trend</span></div></div><div class="proj-tags"><span class="proj-tag">MS Fabric</span><span class="proj-tag">PySpark</span><span class="proj-tag">Power BI</span><span class="proj-tag">SQL</span></div><a href="https://github.com/Niharricky/Super_Store_Sales_Analytics" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg" style="background:linear-gradient(135deg,#065f46,#059669,#34d399)"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · SQL · Python</span><span class="ptag2">E-Commerce Analytics</span></div><div class="proj-thumb-icon">🛍️</div></div><div class="proj-body"><div class="proj-title">E-Commerce Business Insights</div><div class="proj-desc">BI solution analyzing e-commerce performance across sales, customer segments, product categories, and regional trends to surface actionable growth opportunities.</div><div class="proj-stats"><div class="ps"><span class="ps-num">KPI</span><span class="ps-lbl">Tracking</span></div><div class="ps"><span class="ps-num">Multi</span><span class="ps-lbl">Dimensions</span></div><div class="ps"><span class="ps-num">BI</span><span class="ps-lbl">Dashboard</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">SQL</span><span class="proj-tag">Python</span><span class="proj-tag">DAX</span></div><a href="https://github.com/Niharricky/Ecommerce-Business-Insights" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-        <div class="proj-card"><div class="proj-thumb"><div class="proj-thumb-bg" style="background:linear-gradient(135deg,#be123c,#f43f5e,#fb7185)"></div><div class="proj-thumb-overlay"></div><div class="proj-thumb-top"><span class="ptag">Power BI · Maven Analytics</span><span class="ptag2">Travel & Hospitality</span></div><div class="proj-thumb-icon">🏠</div></div><div class="proj-body"><div class="proj-title">Airbnb Listings & Reviews Dashboard</div><div class="proj-desc">Interactive Power BI dashboard analyzing Airbnb listings and reviews — uncovering pricing trends, host performance, review scores, and geographic distribution insights.</div><div class="proj-stats"><div class="ps"><span class="ps-num">Listings</span><span class="ps-lbl">Dataset</span></div><div class="ps"><span class="ps-num">Reviews</span><span class="ps-lbl">Analyzed</span></div><div class="ps"><span class="ps-num">Geo</span><span class="ps-lbl">Insights</span></div></div><div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">DAX</span><span class="proj-tag">Data Cleaning</span><span class="proj-tag">Maven</span></div><a href="https://github.com/Niharricky/Airbnb-Dashboard" target="_blank" class="proj-link">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div>
-      </div>
-    </div>
-  </div>
-  <div id="footer-portfolio"></div>
-</div>
-
-<!-- ════════════ CONTACT ════════════ -->
-<div id="page-contact" class="page">
-  <div class="contact-page">
-    <div class="contact-inner">
-      <div style="margin-bottom:36px">
-        <div class="page-tag">Contact</div>
-        <h2 class="page-title">Get in Touch</h2>
-        <p style="font-size:0.9rem;color:#64748b;max-width:480px;line-height:1.65">Have a project in mind or want to discuss data analysis opportunities? I'd love to hear from you.</p>
-      </div>
-      <div class="contact-wrap">
-        <div class="contact-grid">
-          <div class="contact-left"><div class="cl-grid"></div><div class="cl-glow"></div>
-            <h2>Let's work<br>together</h2>
-            <p>Open to freelance projects and full-time positions in data analysis, business intelligence, and analytics consulting.</p>
-            <div class="ci-list">
-              <div class="ci-item"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></div></div></div>
-              <div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">India</div></div></div>
-              <div class="ci-item"><div class="ci-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div><div class="ci-lbl">GitHub</div><div class="ci-val"><a href="https://github.com/Niharricky" target="_blank">github.com/Niharricky</a></div></div></div>
+      <div class="hero-visual" data-name="Hero card" analytics-name="div-container" data-fh-id="fh-29" data-fh-side="text">
+        <div class="hero-card" data-name="Stats card" analytics-name="card" data-fh-id="fh-30">
+          <div class="hero-card-header" data-name="Card header" analytics-name="div-container" data-fh-id="fh-31">
+            <div class="hero-avatar" aria-hidden="true" data-name="Avatar" analytics-name="decorative element" data-fh-id="fh-32">NT</div>
+            <div data-fh-id="fh-33" data-name="Container" analytics-name="div">
+              <div class="hero-card-name" data-name="Card name" analytics-name="text" data-fh-id="fh-34">Nihar Toor</div>
+              <div class="hero-card-role" data-name="Card role" analytics-name="text" data-fh-id="fh-35">Data Analyst · India</div>
             </div>
-            <div class="avail-box"><span class="ab-dot"></span><span class="ab-txt">Available for Opportunities — Open to freelance and full-time positions in data analysis, BI, and analytics consulting.</span></div>
           </div>
-          <div class="contact-right">
-            <h3>Send a Message</h3><p class="sub-txt">I typically respond within 24 hours.</p>
-            <div class="form-group"><label class="form-lbl">Name</label><input type="text" class="form-inp" placeholder="Your name"></div>
-            <div class="form-group"><label class="form-lbl">Email</label><input type="email" class="form-inp" placeholder="your.email@example.com"></div>
-            <div class="form-group"><label class="form-lbl">Message</label><textarea class="form-inp" placeholder="Tell me about your project or inquiry..."></textarea></div>
-            <button class="form-btn" onclick="sendMsg(this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send Message</button>
-            <p class="form-note">Or reach out directly at: <a href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a></p>
+          <div class="hero-stat-grid" data-name="Stats grid" analytics-name="div-container" data-fh-id="fh-36">
+            <div class="hero-stat" data-name="Stat projects" analytics-name="card" data-fh-id="fh-37">
+              <div class="hero-stat-value" data-name="Stat value" analytics-name="text" data-fh-id="fh-38">6+</div>
+              <div class="hero-stat-label" data-name="Stat label" analytics-name="text" data-fh-id="fh-39">Projects</div>
+            </div>
+            <div class="hero-stat" data-name="Stat domains" analytics-name="card" data-fh-id="fh-40">
+              <div class="hero-stat-value" data-name="Stat value" analytics-name="text" data-fh-id="fh-41">4</div>
+              <div class="hero-stat-label" data-name="Stat label" analytics-name="text" data-fh-id="fh-42">Domains</div>
+            </div>
+            <div class="hero-stat" data-name="Stat revenue" analytics-name="card" data-fh-id="fh-43">
+              <div class="hero-stat-value" data-name="Stat value" analytics-name="text" data-fh-id="fh-44">$57M</div>
+              <div class="hero-stat-label" data-name="Stat label" analytics-name="text" data-fh-id="fh-45">Revenue tracked</div>
+            </div>
+            <div class="hero-stat" data-name="Stat records" analytics-name="card" data-fh-id="fh-46">
+              <div class="hero-stat-value" data-name="Stat value" analytics-name="text" data-fh-id="fh-47">667K</div>
+              <div class="hero-stat-label" data-name="Stat label" analytics-name="text" data-fh-id="fh-48">Transactions</div>
+            </div>
+          </div>
+          <div class="hero-tag-row" data-name="Tag row" analytics-name="div-container" data-fh-id="fh-49">
+            <span class="hero-tag" data-name="Tag SQL" analytics-name="text" data-fh-id="fh-50">SQL</span>
+            <span class="hero-tag" data-name="Tag Python" analytics-name="text" data-fh-id="fh-51">Python</span>
+            <span class="hero-tag" data-name="Tag Power BI" analytics-name="text" data-fh-id="fh-52">Power BI</span>
+            <span class="hero-tag" data-name="Tag MS Fabric" analytics-name="text" data-fh-id="fh-53">MS Fabric</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="footer-contact"></div>
-</div>
+</header>
 
-<script>
-/* ── Footer injection ── */
-function injectFooters(){
-  const tpl=document.getElementById('footer-tpl').content;
-  ['home','about','portfolio','contact'].forEach(id=>{
-    const el=document.getElementById('footer-'+id);
-    if(el) el.appendChild(tpl.cloneNode(true));
-  });
-}
-injectFooters();
-
-/* ── Page switch ── */
-function show(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.mob-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.getElementById('btn-'+id).classList.add('active');
-  document.getElementById('mbtn-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'instant'});
+<!-- fh-stream:section:about -->
+<style>
+.about {
+  padding: 6rem 0;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-/* ── Hamburger ── */
-function toggleMenu(){
-  const ham=document.getElementById('ham');
-  const menu=document.getElementById('mobileMenu');
-  ham.classList.toggle('open');
-  menu.classList.toggle('open');
-  document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
-}
-function closeMenu(){
-  document.getElementById('ham').classList.remove('open');
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.body.style.overflow='';
-}
-/* Close on outside click */
-document.getElementById('mobileMenu').addEventListener('click',function(e){
-  if(e.target===this) closeMenu();
-});
-
-/* ── Form ── */
-function sendMsg(btn){
-  const o=btn.innerHTML;
-  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Sent!';
-  btn.style.background='#16a34a';
-  setTimeout(()=>{btn.innerHTML=o;btn.style.background=''},3000);
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
 }
 
-/* ── Card tilt (desktop only) ── */
-if(window.innerWidth>768){
-  document.querySelectorAll('.proj-card,.tss-item').forEach(c=>{
-    c.addEventListener('mousemove',e=>{
-      const r=c.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      c.style.transform=`translateY(-5px) rotateX(${-y*5}deg) rotateY(${x*5}deg)`;
-    });
-    c.addEventListener('mouseleave',()=>c.style.transform='');
-  });
+.about-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  margin-bottom: 1rem;
 }
-</script>
-</body>
-</html>
+
+.about-heading {
+  font-size: clamp(2rem, 4vw, var(--text-4xl));
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.about-body {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-domains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-domain {
+  font-size: var(--text-sm);
+  color: var(--text);
+  background-color: color-mix(in srgb, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+}
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background-color: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-badge-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.about-badge-text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+</style>
+
+<section id="about" class="about" aria-label="About Me" data-name="About section" analytics-name="2-column section" data-fh-id="fh-54">
+  <div class="container" data-fh-id="fh-55" data-name="Container" analytics-name="div">
+    <div class="about-grid" data-fh-id="fh-56" data-name="About grid" analytics-name="div" data-fh-layout="split">
+      <div data-name="About content" analytics-name="1-column section" data-fh-id="fh-57" data-fh-side="text">
+        <div class="about-label" data-name="About label" analytics-name="text" data-fh-id="fh-58">Who I am</div>
+        <h2 class="about-heading" data-name="About heading" analytics-name="text" data-fh-id="fh-59">
+          Raw data in.<br>Strategic decisions out.
+        </h2>
+        <p class="about-body" data-name="About body" analytics-name="text" data-fh-id="fh-60">
+          I'm an aspiring Data Analyst from India, passionate about bridging the gap between raw datasets and boardroom decisions. I build end-to-end analytics solutions using SQL, Excel, Python, Power BI, and Microsoft Fabric — delivering dashboards that executives actually use.
+        </p>
+        <p class="about-body" data-name="About body 2" analytics-name="text" data-fh-id="fh-61">
+          My work spans finance, HR, retail, and e-commerce — consistently translating messy, complex data into clear narratives that move organizations forward.
+        </p>
+        <div class="about-domains" data-name="Domain tags" analytics-name="div-container" data-fh-id="fh-62">
+          <span class="about-domain" data-name="Domain finance" analytics-name="text" data-fh-id="fh-63">Finance Analytics</span>
+          <span class="about-domain" data-name="Domain HR" analytics-name="text" data-fh-id="fh-64">HR Analytics</span>
+          <span class="about-domain" data-name="Domain retail" analytics-name="text" data-fh-id="fh-65">Retail Analytics</span>
+          <span class="about-domain" data-name="Domain ecommerce" analytics-name="text" data-fh-id="fh-66">E-Commerce BI</span>
+          <span class="about-domain" data-name="Domain travel" analytics-name="text" data-fh-id="fh-67">Travel &amp; Hospitality</span>
+        </div>
+      </div>
+      <div data-name="About visual" analytics-name="div" data-fh-id="fh-68" data-fh-side="image">
+        <div class="about-img-wrap" data-name="About image wrap" analytics-name="image" data-fh-id="fh-69">
+          <img alt="Data analyst at work with multiple monitors showing Power BI dashboards, charts and SQL queries in a dark-themed workspace" data-name="About image" analytics-name="image" data-fh-id="fh-70" data-asset-id="111f008b-c860-4608-9cf8-fde39b89e970" src="images/111f008b-c860-4608-9cf8-fde39b89e970.jpg">
+          <div class="about-img-badge" data-name="Available badge" analytics-name="div-container" data-fh-id="fh-71">
+            <div class="about-badge-dot" aria-hidden="true" data-fh-id="fh-72" data-name="About badge dot" analytics-name="div"></div>
+            <span class="about-badge-text" data-name="Badge text" analytics-name="text" data-fh-id="fh-73">Open to opportunities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- fh-stream:section:skills -->
+<style>
+.skills {
+  padding: 6rem 0;
+  background-color: var(--bg);
+}
+
+.skills-header {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 3.5vw, var(--text-4xl));
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.section-subhead {
+  font-size: var(--text-lg);
+  color: var(--fg);
+  max-width: 52ch;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.skill-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease;
+}
+
+.skill-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-3px);
+}
+
+.skill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.skill-name {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.skill-level {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
+.skill-bar-track {
+  height: 4px;
+  background-color: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  background-color: var(--accent);
+  animation: grow-bar var(--duration-xslow) ease both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 60%;
+}
+
+@keyframes grow-bar {
+  from { width: 0; }
+}
+
+@media (max-width: 860px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<section id="skills" class="skills" aria-label="Technical Skills" data-name="Skills section" analytics-name="3-column section" data-fh-id="fh-74">
+  <div class="container" data-fh-id="fh-75" data-name="Container" analytics-name="div">
+    <div class="skills-header" data-name="Skills header" analytics-name="div-container" data-fh-id="fh-76">
+      <span class="section-label" data-name="Skills label" analytics-name="text" data-fh-id="fh-77">Technical Skills</span>
+      <h2 class="section-heading" data-name="Skills heading" analytics-name="text" data-fh-id="fh-78">The analyst's toolkit</h2>
+      <p class="section-subhead" data-name="Skills subhead" analytics-name="text" data-fh-id="fh-79">Proficient in industry-standard tools and methodologies for data analysis, visualization, and engineering.</p>
+    </div>
+    <div class="skills-grid" data-name="Skills grid" analytics-name="div-container" data-fh-id="fh-80">
+      <div class="skill-card" data-name="SQL skill" analytics-name="card" data-fh-id="fh-81">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-82">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-83">SQL</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-84">Advanced</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-85" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:95%" data-fh-id="fh-86" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="Python skill" analytics-name="card" data-fh-id="fh-87">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-88">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-89">Python</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-90">Advanced</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-91" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:90%" data-fh-id="fh-92" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="Power BI skill" analytics-name="card" data-fh-id="fh-93">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-94">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-95">Power BI</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-96">Expert</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-97" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:98%" data-fh-id="fh-98" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="Excel skill" analytics-name="card" data-fh-id="fh-99">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-100">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-101">Excel</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-102">Advanced</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-103" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:92%" data-fh-id="fh-104" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="DAX skill" analytics-name="card" data-fh-id="fh-105">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-106">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-107">DAX / M Query</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-108">Advanced</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-109" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:88%" data-fh-id="fh-110" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="Statistics skill" analytics-name="card" data-fh-id="fh-111">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-112">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-113">Statistics</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-114">Advanced</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-115" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:88%" data-fh-id="fh-116" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="PySpark skill" analytics-name="card" data-fh-id="fh-117">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-118">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-119">PySpark</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-120">Intermediate</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-121" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:70%" data-fh-id="fh-122" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="MS Fabric skill" analytics-name="card" data-fh-id="fh-123">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-124">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-125">MS Fabric</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-126">Intermediate</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-127" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:70%" data-fh-id="fh-128" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+      <div class="skill-card" data-name="Git skill" analytics-name="card" data-fh-id="fh-129">
+        <div class="skill-top" data-name="Skill top" analytics-name="div-container" data-fh-id="fh-130">
+          <span class="skill-name" data-name="Skill name" analytics-name="text" data-fh-id="fh-131">Git &amp; GitHub</span>
+          <span class="skill-level" data-name="Skill level" analytics-name="text" data-fh-id="fh-132">Proficient</span>
+        </div>
+        <div class="skill-bar-track" aria-hidden="true" data-fh-id="fh-133" data-name="Skill bar track" analytics-name="div"><div class="skill-bar-fill" style="width:80%" data-fh-id="fh-134" data-name="Skill bar fill" analytics-name="div"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- fh-stream:section:projects -->
+<style>
+.projects {
+  padding: 6rem 0;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-header {
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color var(--duration-base) ease, transform var(--duration-base) ease, box-shadow var(--duration-base) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background-color: var(--accent);
+  opacity: 0;
+  transition: opacity var(--duration-base) ease;
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-domain {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-display-accent);
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+
+.project-gh-link {
+  color: var(--fg);
+  transition: color var(--duration-fast) ease;
+  min-width: 24px; min-height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0.25rem;
+}
+.project-gh-link:hover { color: var(--text-display-accent); }
+
+.project-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-tech {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  background-color: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.project-desc {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.project-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.project-stat-val {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-display-accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.project-stat-key {
+  font-size: var(--text-xs);
+  color: var(--fg);
+  letter-spacing: 0.04em;
+}
+
+/* Featured card — spans 2 columns */
+.project-card-featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card-featured .project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-card-featured .project-visual {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 200px;
+  border: 1px solid var(--border);
+}
+
+.project-card-featured .project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card-featured { grid-column: span 2; }
+}
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+  .project-card-featured .project-visual { min-height: 160px; }
+}
+</style>
+
+<section id="projects" class="projects" aria-label="Featured Projects" data-name="Projects section" analytics-name="3-column section" data-fh-id="fh-135">
+  <div class="container" data-fh-id="fh-136" data-name="Container" analytics-name="div">
+    <div class="projects-header" data-name="Projects header" analytics-name="div-container" data-fh-id="fh-137">
+      <span class="section-label" data-name="Projects label" analytics-name="text" data-fh-id="fh-138">Portfolio</span>
+      <h2 class="section-heading" data-name="Projects heading" analytics-name="text" data-fh-id="fh-139">End-to-end analytics, in production</h2>
+      <p class="section-subhead" data-name="Projects subhead" analytics-name="text" data-fh-id="fh-140">Finance, HR, retail, and e-commerce — real datasets, real decisions.</p>
+    </div>
+    <div class="projects-grid" data-name="Projects grid" analytics-name="div-container" data-fh-id="fh-141">
+
+      <!-- Featured: Credit Card Dashboard -->
+      <div class="project-card project-card-featured" data-name="Credit Card project card" analytics-name="card" data-fh-id="fh-142" data-fh-layout="split">
+        <div class="project-info" data-name="Project info" analytics-name="div-container" data-fh-id="fh-143" data-fh-side="text">
+          <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-144" data-fh-layout="split">
+            <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-145" data-fh-side="text">Financial Analytics</span>
+            <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View Credit Card Dashboard on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-146" data-fh-side="image" href="https://github.com/Niharricky/Credit_Card_Financial_Dashboard">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            </a>
+          </div>
+          <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-147">Credit Card Financial Dashboard</h3>
+          <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-148">Weekly financial analytics tracking $57M in credit card revenue across customer demographics and transaction behavior. WoW trend analysis via Power BI, MySQL, and DAX.</p>
+          <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-149">
+            <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-150">Power BI</span>
+            <span class="project-tech" data-name="Tech MySQL" analytics-name="text" data-fh-id="fh-151">MySQL</span>
+            <span class="project-tech" data-name="Tech DAX" analytics-name="text" data-fh-id="fh-152">DAX</span>
+            <span class="project-tech" data-name="Tech Excel" analytics-name="text" data-fh-id="fh-153">Excel</span>
+          </div>
+          <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-154">
+            <div class="project-stat" data-name="Stat revenue" analytics-name="div-container" data-fh-id="fh-155">
+              <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-156">$57M</span>
+              <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-157">Revenue</span>
+            </div>
+            <div class="project-stat" data-name="Stat transactions" analytics-name="div-container" data-fh-id="fh-158">
+              <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-159">667K</span>
+              <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-160">Transactions</span>
+            </div>
+            <div class="project-stat" data-name="Stat records" analytics-name="div-container" data-fh-id="fh-161">
+              <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-162">10,109</span>
+              <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-163">Records</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-visual" data-name="Project image" analytics-name="image" data-fh-id="fh-164" data-fh-side="image">
+          <img alt="Power BI financial dashboard showing credit card revenue metrics, bar charts, demographic breakdowns, and week-over-week trend lines on a dark interface" data-name="Credit card dashboard screenshot" analytics-name="image" data-fh-id="fh-165" data-asset-id="9caa1e62-79ba-4124-90d7-6666f0aa3807" src="images/9caa1e62-79ba-4124-90d7-6666f0aa3807.jpg">
+        </div>
+      </div>
+
+      <!-- HR Attrition -->
+      <div class="project-card" data-name="HR Attrition project card" analytics-name="card" data-fh-id="fh-166">
+        <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-167" data-fh-layout="split">
+          <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-168" data-fh-side="text">HR Analytics</span>
+          <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View HR Attrition project on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-169" data-fh-side="image" href="https://github.com/Niharricky/HR-Attrition-Analytics">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          </a>
+        </div>
+        <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-170">HR Attrition Analytics Dashboard</h3>
+        <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-171">Analyzing employee attrition patterns across demographics, tenure, compensation, and work-life balance to drive data-informed retention strategies.</p>
+        <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-172">
+          <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-173">Power BI</span>
+          <span class="project-tech" data-name="Tech MySQL" analytics-name="text" data-fh-id="fh-174">MySQL</span>
+          <span class="project-tech" data-name="Tech Python" analytics-name="text" data-fh-id="fh-175">Python</span>
+          <span class="project-tech" data-name="Tech DAX" analytics-name="text" data-fh-id="fh-176">DAX</span>
+        </div>
+        <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-177">
+          <div class="project-stat" data-name="Stat employees" analytics-name="div-container" data-fh-id="fh-178">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-179">1,470</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-180">Employees</span>
+          </div>
+          <div class="project-stat" data-name="Stat attrition" analytics-name="div-container" data-fh-id="fh-181">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-182">16.12%</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-183">Attrition rate</span>
+          </div>
+          <div class="project-stat" data-name="Stat features" analytics-name="div-container" data-fh-id="fh-184">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-185">32</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-186">Features</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Behavior -->
+      <div class="project-card" data-name="Customer Behavior project card" analytics-name="card" data-fh-id="fh-187">
+        <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-188" data-fh-layout="split">
+          <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-189" data-fh-side="text">Retail Analytics</span>
+          <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View Customer Behavior analysis on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-190" data-fh-side="image" href="https://github.com/Niharricky/Customer_behavior_analysis">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          </a>
+        </div>
+        <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-191">Customer Shopping Behavior Analysis</h3>
+        <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-192">Analyzing 3,900 customer purchases to uncover spending patterns, subscription drivers, and product preferences for strategic marketing optimization.</p>
+        <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-193">
+          <span class="project-tech" data-name="Tech Python" analytics-name="text" data-fh-id="fh-194">Python</span>
+          <span class="project-tech" data-name="Tech Pandas" analytics-name="text" data-fh-id="fh-195">Pandas</span>
+          <span class="project-tech" data-name="Tech MySQL" analytics-name="text" data-fh-id="fh-196">MySQL</span>
+          <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-197">Power BI</span>
+        </div>
+        <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-198">
+          <div class="project-stat" data-name="Stat transactions" analytics-name="div-container" data-fh-id="fh-199">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-200">3,900</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-201">Transactions</span>
+          </div>
+          <div class="project-stat" data-name="Stat revenue" analytics-name="div-container" data-fh-id="fh-202">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-203">$233K</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-204">Revenue</span>
+          </div>
+          <div class="project-stat" data-name="Stat queries" analytics-name="div-container" data-fh-id="fh-205">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-206">10</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-207">SQL queries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Superstore -->
+      <div class="project-card" data-name="Superstore project card" analytics-name="card" data-fh-id="fh-208">
+        <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-209" data-fh-layout="split">
+          <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-210" data-fh-side="text">Sales Analytics</span>
+          <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View Superstore Sales Analytics on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-211" data-fh-side="image" href="https://github.com/Niharricky/Super_Store_Sales_Analytics">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          </a>
+        </div>
+        <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-212">Superstore Sales Analytics</h3>
+        <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-213">End-to-end workflow on Microsoft Fabric and Power BI analyzing retail sales data — revenue, profit, and customer behavior across 4 regions over multiple years.</p>
+        <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-214">
+          <span class="project-tech" data-name="Tech MS Fabric" analytics-name="text" data-fh-id="fh-215">MS Fabric</span>
+          <span class="project-tech" data-name="Tech PySpark" analytics-name="text" data-fh-id="fh-216">PySpark</span>
+          <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-217">Power BI</span>
+          <span class="project-tech" data-name="Tech SQL" analytics-name="text" data-fh-id="fh-218">SQL</span>
+        </div>
+        <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-219">
+          <div class="project-stat" data-name="Stat regions" analytics-name="div-container" data-fh-id="fh-220">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-221">4</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-222">Regions</span>
+          </div>
+          <div class="project-stat" data-name="Stat categories" analytics-name="div-container" data-fh-id="fh-223">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-224">3</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-225">Categories</span>
+          </div>
+          <div class="project-stat" data-name="Stat trend" analytics-name="div-container" data-fh-id="fh-226">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-227">Multi-yr</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-228">Trend</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-Commerce + Airbnb side by side -->
+      <div class="project-card" data-name="Ecommerce project card" analytics-name="card" data-fh-id="fh-229">
+        <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-230" data-fh-layout="split">
+          <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-231" data-fh-side="text">E-Commerce Analytics</span>
+          <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View E-Commerce project on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-232" data-fh-side="image" href="https://github.com/Niharricky">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          </a>
+        </div>
+        <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-233">E-Commerce Business Insights</h3>
+        <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-234">BI solution analyzing performance across sales, customer segments, product categories, and regional trends to surface actionable growth opportunities.</p>
+        <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-235">
+          <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-236">Power BI</span>
+          <span class="project-tech" data-name="Tech SQL" analytics-name="text" data-fh-id="fh-237">SQL</span>
+          <span class="project-tech" data-name="Tech Python" analytics-name="text" data-fh-id="fh-238">Python</span>
+          <span class="project-tech" data-name="Tech DAX" analytics-name="text" data-fh-id="fh-239">DAX</span>
+        </div>
+        <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-240">
+          <div class="project-stat" data-name="Stat KPI" analytics-name="div-container" data-fh-id="fh-241">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-242">KPI</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-243">Tracking</span>
+          </div>
+          <div class="project-stat" data-name="Stat dimensions" analytics-name="div-container" data-fh-id="fh-244">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-245">Multi</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-246">Dimensions</span>
+          </div>
+          <div class="project-stat" data-name="Stat dashboard" analytics-name="div-container" data-fh-id="fh-247">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-248">BI</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-249">Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-name="Airbnb project card" analytics-name="card" data-fh-id="fh-250">
+        <div class="project-card-top" data-name="Project top" analytics-name="div-container" data-fh-id="fh-251" data-fh-layout="split">
+          <span class="project-domain" data-name="Domain label" analytics-name="text" data-fh-id="fh-252" data-fh-side="text">Travel &amp; Hospitality</span>
+          <a target="_blank" rel="noopener" class="project-gh-link" aria-label="View Airbnb Dashboard project on GitHub" data-name="GitHub link" analytics-name="button" data-fh-id="fh-253" data-fh-side="image" href="https://github.com/Niharricky">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          </a>
+        </div>
+        <h3 class="project-title" data-name="Project title" analytics-name="text" data-fh-id="fh-254">Airbnb Listings &amp; Reviews Dashboard</h3>
+        <p class="project-desc" data-name="Project desc" analytics-name="text" data-fh-id="fh-255">Interactive Power BI dashboard analyzing Airbnb listings and reviews — uncovering pricing trends, host performance, review scores, and geographic distribution insights.</p>
+        <div class="project-tech-row" data-name="Tech tags" analytics-name="div-container" data-fh-id="fh-256">
+          <span class="project-tech" data-name="Tech Power BI" analytics-name="text" data-fh-id="fh-257">Power BI</span>
+          <span class="project-tech" data-name="Tech DAX" analytics-name="text" data-fh-id="fh-258">DAX</span>
+          <span class="project-tech" data-name="Tech Data Cleaning" analytics-name="text" data-fh-id="fh-259">Data Cleaning</span>
+          <span class="project-tech" data-name="Tech Maven" analytics-name="text" data-fh-id="fh-260">Maven</span>
+        </div>
+        <div class="project-stats" data-name="Project stats" analytics-name="div-container" data-fh-id="fh-261">
+          <div class="project-stat" data-name="Stat listings" analytics-name="div-container" data-fh-id="fh-262">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-263" style="transition: outline-color 0.4s;">279K</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-264">Listings</span>
+          </div>
+          <div class="project-stat" data-name="Stat reviews" analytics-name="div-container" data-fh-id="fh-265">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-266">1.1M+</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-267">Reviews</span>
+          </div>
+          <div class="project-stat" data-name="Stat geo" analytics-name="div-container" data-fh-id="fh-268">
+            <span class="project-stat-val" data-name="Stat val" analytics-name="text" data-fh-id="fh-269">6</span>
+            <span class="project-stat-key" data-name="Stat key" analytics-name="text" data-fh-id="fh-270">Cities</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- fh-stream:section:contact -->
+<style>
+.contact {
+  padding: 6rem 0;
+  background-color: var(--bg);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-heading {
+  font-size: clamp(2rem, 4vw, var(--text-4xl));
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text);
+}
+
+.contact-body {
+  font-size: var(--text-base);
+  color: var(--fg);
+  line-height: 1.8;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  transition: border-color var(--duration-base) ease;
+}
+
+.contact-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.contact-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-display-accent);
+}
+
+.contact-item-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.15rem;
+}
+
+.contact-item-value {
+  font-size: var(--text-sm);
+  color: var(--text);
+  text-decoration: none;
+}
+
+a.contact-item-value {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+a.contact-item-value:hover { color: var(--link-hover); }
+
+.contact-right {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-right-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.contact-right-sub {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+.contact-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-direct {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  margin-top: 0.5rem;
+}
+
+.contact-direct a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.contact-direct a:hover { color: var(--link-hover); }
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: color-mix(in srgb, #ffffff 10%, transparent);
+  border: 1px solid color-mix(in srgb, #ffffff 25%, transparent);
+  color: #e5e5e5;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.availability-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>
+
+<section id="contact" class="contact" aria-label="Contact" data-name="Contact section" analytics-name="2-column section" data-fh-id="fh-271">
+  <div class="container" data-fh-id="fh-272" data-name="Container" analytics-name="div">
+    <div class="contact-grid" data-fh-id="fh-273" data-name="Contact grid" analytics-name="div" data-fh-layout="split">
+      <div class="contact-left" data-name="Contact left" analytics-name="1-column section" data-fh-id="fh-274" data-fh-side="text">
+        <div data-fh-id="fh-275" data-name="Container" analytics-name="div">
+          <span class="section-label" data-name="Contact label" analytics-name="text" data-fh-id="fh-276">Get in touch</span>
+          <h2 class="contact-heading" data-name="Contact heading" analytics-name="text" data-fh-id="fh-277">
+            Let's build<br>something with data.
+          </h2>
+        </div>
+        <p class="contact-body" data-name="Contact body" analytics-name="text" data-fh-id="fh-278">
+          Open to freelance analytics projects, business intelligence consulting, and full-time data analyst roles. If you have a dataset and a decision to make — I'm interested.
+        </p>
+        <div class="contact-items" data-name="Contact items" analytics-name="div-container" data-fh-id="fh-279">
+          <div class="contact-item" data-name="Email contact" analytics-name="div-container" data-fh-id="fh-280" data-fh-layout="split">
+            <div class="contact-icon" aria-hidden="true" data-fh-id="fh-281" data-name="Contact icon" analytics-name="div" data-fh-side="image">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            </div>
+            <div data-fh-id="fh-282" data-name="Container" analytics-name="div" data-fh-side="text">
+              <div class="contact-item-label" data-name="Email label" analytics-name="text" data-fh-id="fh-283">Email</div>
+              <a class="contact-item-value" data-name="Email value" analytics-name="button" data-fh-id="fh-284" href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item" data-name="Location contact" analytics-name="div-container" data-fh-id="fh-285" data-fh-layout="split">
+            <div class="contact-icon" aria-hidden="true" data-fh-id="fh-286" data-name="Contact icon" analytics-name="div" data-fh-side="image">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div data-fh-id="fh-287" data-name="Container" analytics-name="div" data-fh-side="text">
+              <div class="contact-item-label" data-name="Location label" analytics-name="text" data-fh-id="fh-288">Location</div>
+              <span class="contact-item-value" data-name="Location value" analytics-name="text" data-fh-id="fh-289">India</span>
+            </div>
+          </div>
+          <div class="contact-item" data-name="GitHub contact" analytics-name="div-container" data-fh-id="fh-290" data-fh-layout="split">
+            <div class="contact-icon" aria-hidden="true" data-fh-id="fh-291" data-name="Contact icon" analytics-name="div" data-fh-side="image">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            </div>
+            <div data-fh-id="fh-292" data-name="Container" analytics-name="div" data-fh-side="text">
+              <div class="contact-item-label" data-name="GitHub label" analytics-name="text" data-fh-id="fh-293">GitHub</div>
+              <a target="_blank" rel="noopener" class="contact-item-value" data-name="GitHub value" analytics-name="button" data-fh-id="fh-294" href="https://github.com/Niharricky">github.com/Niharricky</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right contact-form-panel" data-name="Contact form panel" analytics-name="card" data-fh-id="fh-295" data-fh-side="image">
+        <h3 class="contact-right-heading" data-name="Form heading" analytics-name="text" data-fh-id="fh-298">Send a Message</h3>
+        <p class="contact-right-sub" data-name="Form sub" analytics-name="text" data-fh-id="fh-299">
+          I typically respond within 24 hours.
+        </p>
+
+        <!-- NOTE: replace the action URL below with your own Formspree (or similar) endpoint —
+             see the message under this file for why a plain mailto:/JS submit can't be used. -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-field">
+            <input type="text" id="cf-name" name="name" placeholder=" " required>
+            <label for="cf-name">Name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" id="cf-email" name="email" placeholder=" " required>
+            <label for="cf-email">Email</label>
+          </div>
+          <div class="form-field">
+            <textarea id="cf-message" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="cf-message">Message</label>
+          </div>
+          <button type="submit" class="btn-primary __freeform_button__ contact-submit">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Send Message
+          </button>
+        </form>
+
+        <p class="contact-direct" data-name="Direct contact note" analytics-name="text" data-fh-id="fh-304">
+          Or reach out directly at: <a data-fh-id="fh-305" data-name="Link" href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- fh-stream:section:footer -->
+<style>
+footer {
+  background-color: var(--surface-strong);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  --link: #878787;
+  --link-hover: #ffffff;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-on-surface-strong);
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-tagline {
+  font-size: var(--text-sm);
+  color: var(--fg);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links-col-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.25rem;
+}
+
+.footer-links-col a {
+  font-size: var(--text-sm);
+  color: var(--link);
+  text-decoration: none;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  transition: color var(--duration-fast) ease;
+}
+.footer-links-col a:hover { color: var(--link-hover); }
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-legal {
+  font-size: var(--text-xs);
+  color: var(--fg);
+}
+
+.footer-legal a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.footer-legal a:hover { color: var(--link-hover); }
+
+.footer-gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--link);
+  transition: color var(--duration-fast) ease;
+  min-height: 24px;
+  padding: 0.25rem;
+  text-decoration: none;
+}
+.footer-gh-link:hover { color: var(--link-hover); }
+</style>
+
+<footer aria-label="Site footer" data-name="Footer" analytics-name="footer" data-fh-id="fh-306">
+  <div class="container" data-fh-id="fh-307" data-name="Container" analytics-name="div">
+    <div class="footer-inner" data-name="Footer inner" analytics-name="div-container" data-fh-id="fh-308">
+      <div class="footer-top" data-name="Footer top" analytics-name="div-container" data-fh-id="fh-309" data-fh-layout="split">
+        <div class="footer-brand" data-name="Footer brand" analytics-name="div-container" data-fh-id="fh-310" data-fh-side="text">
+          <span class="footer-brand-name" data-name="Footer brand name" analytics-name="text" data-fh-id="fh-311">Nihar Toor</span>
+          <span class="footer-brand-tagline" data-name="Footer tagline" analytics-name="text" data-fh-id="fh-312">Data Analyst specializing in transforming complex datasets into actionable insights.</span>
+        </div>
+        <div class="footer-links-group" data-name="Footer links group" analytics-name="div-container" data-fh-id="fh-313" data-fh-side="image" data-fh-layout="split">
+          <div class="footer-links-col" data-name="Quick links col" analytics-name="div-container" data-fh-id="fh-314" data-fh-side="text">
+            <span class="footer-links-col-label" data-name="Col label" analytics-name="text" data-fh-id="fh-315">Quick Links</span>
+            <a data-name="Footer about link" analytics-name="button" data-fh-id="fh-316" href="#about">About</a>
+            <a data-name="Footer skills link" analytics-name="button" data-fh-id="fh-317" href="#skills">Skills</a>
+            <a data-name="Footer projects link" analytics-name="button" data-fh-id="fh-318" href="#projects">Projects</a>
+            <a data-name="Footer contact link" analytics-name="button" data-fh-id="fh-319" href="#contact">Contact</a>
+          </div>
+          <div class="footer-links-col" data-name="Connect col" analytics-name="div-container" data-fh-id="fh-320" data-fh-side="image">
+            <span class="footer-links-col-label" data-name="Col label" analytics-name="text" data-fh-id="fh-321">Connect</span>
+            <a data-name="Footer email" analytics-name="button" data-fh-id="fh-322" href="mailto:nihar.analytics@gmail.com">nihar.analytics@gmail.com</a>
+            <a target="_blank" rel="noopener" class="footer-gh-link" data-name="Footer GitHub" analytics-name="button" data-fh-id="fh-323" href="https://github.com/Niharricky">
+              <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider" aria-hidden="true">
+      <div class="footer-bottom" data-name="Footer bottom" analytics-name="div-container" data-fh-id="fh-324">
+        <p class="footer-legal" data-name="Footer legal" analytics-name="text" data-fh-id="fh-325" style="text-transform: none; font-style: normal;">© 2026 Nihar Toor. All rights reserved.</p>
+        <p class="footer-legal" data-name="Footer credit" analytics-name="text" data-fh-id="fh-326" style="text-transform: none; font-style: normal;">Built with precision. Data-driven by design.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<aside id="__fh_assistant_panel_bridge__" data-freeform-editor-chrome="1" data-testid="freeform-assistant-panel-bridge" role="complementary" aria-label="Webpage Assistant" tabindex="-1" style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;"></aside>
+<footer data-gneiss-footer class="gneiss-freeform-footer" aria-label="Adobe links"><a class="gneiss-freeform-footer-link" data-gneiss-footer-tos target="_blank" rel="nofollow" href="http://www.adobe.com/legal/terms.html">Terms of Service</a><a class="gneiss-freeform-footer-link" data-gneiss-footer-privacy target="_blank" rel="nofollow" href="http://www.adobe.com/go/privacy">Privacy Policy</a><a class="gneiss-freeform-footer-link cookie-preferences" data-gneiss-footer-cookie href="#" target="_blank" rel="nofollow"></a></footer></body></html>
